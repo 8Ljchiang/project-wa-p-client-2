@@ -1,9 +1,9 @@
 {
     "defaultSeverity": "error",
     "extends": [
-		"tslint:latest",
-		"tslint-react",
-		"tslint-immutable"
+			"tslint:latest",
+			"tslint-react",
+			"tslint-immutable"
     ],
     "jsRules": {},
     "rules": {

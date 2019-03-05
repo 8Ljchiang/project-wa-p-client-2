@@ -8,7 +8,7 @@ export interface ISessionListProps {
 export default class SessionList extends Component<ISessionListProps, {}> {
 	renderSessions() {
 		return this.props.sessions.map((session: any, index) => {
-			return <SessionListItem key={index} title={session.title} description={session.description} />;
+			return <SessionListItem key={index} item={session} />;
 		});
 	}
 
