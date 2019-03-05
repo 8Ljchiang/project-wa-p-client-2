@@ -1,3 +1,6 @@
+import { IComponentType } from '../helpers/componentHelpers';
+import { switchcaseF } from '../helpers/utils';
+
 export interface IBaseObject {
 	id: string;
 }
@@ -8,16 +11,7 @@ export interface IProject extends IBaseObject {
 	type: string;
 }
 
-// export const projects: IProject[] = [
-// 	{
-// 		description: 'project-desc-1',
-// 		id: 1,
-// 		title: 'project-title-1',
-// 		type: 'project-type-1',
-// 	},
-// ];
-
-export function getProjects(count: number): IProject[] {
+export function getProjects(count: number = 5): IProject[] {
 	const results: IProject[] = [];
 	for (let i = 0; i < count; i++) {
 		results.push({
@@ -35,7 +29,7 @@ export interface ISession extends IBaseObject {
 	description: string;
 }
 
-export function getSessions(count: number): ISession[] {
+export function getSessions(count: number = 5): ISession[] {
 	const results: ISession[] = [];
 	for (let i = 0; i < count; i++) {
 		results.push({
@@ -45,4 +39,19 @@ export function getSessions(count: number): ISession[] {
 		});
 	}
 	return results;
+}
+
+export type IDataType =
+	'project' | 'session';
+
+export const dataMap = {
+	project: getProjects,
+	session: getSessions,
+};
+
+export function getItems<T>(type: IComponentType, count: number): T[] {
+	// const results = switchcaseF(dataMap)(type)(count);
+	const resultItems = switchcaseF(dataMap)(() => [])(type)(count);
+	console.log(resultItems);
+	return (resultItems && resultItems.length > 0) ? resultItems : [];
 }
