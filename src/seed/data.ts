@@ -49,9 +49,9 @@ export const dataMap = {
 	session: getSessions,
 };
 
-export function getItems<T>(type: IComponentType, count: number): T[] {
+export function getItems<T>(type: IDataType, count: number): T[] {
 	// const results = switchcaseF(dataMap)(type)(count);
 	const resultItems = switchcaseF(dataMap)(() => [])(type)(count);
-	console.log(resultItems);
+	// console.log(resultItems);
 	return (resultItems && resultItems.length > 0) ? resultItems : [];
 }

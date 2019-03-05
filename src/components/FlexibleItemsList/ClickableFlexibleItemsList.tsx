@@ -20,7 +20,7 @@ export interface IFlexibleListProps<T> {
 	action: any;
 }
 
-export default class ClickableFlexibleItemsList<Type extends IBaseObject> 
+export default class ClickableFlexibleItemsList<Type extends IBaseObject>
 	extends Component<IFlexibleListProps<Type>, {}> {
 	render() {
 		const { items, type, action } = this.props;

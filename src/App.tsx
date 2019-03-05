@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Routes from './routes/index';
 import './App.css';
+import ContainerSelector from './components/ContainerSelector/ContainerSelector';
 
 class App extends Component {
 	render() {

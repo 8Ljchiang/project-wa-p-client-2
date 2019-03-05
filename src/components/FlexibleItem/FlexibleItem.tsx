@@ -11,8 +11,11 @@ export default class FlexibleItem<Type extends IBaseObject> extends Component<IF
 		const { item, action } = this.props;
 		if (action) {
 			return (
-				<div style={styles.container} className="flexible-item-container" onClick={() => action(item.id)}>
-					{mapItemFields(this.props.item)}
+				<div style={styles.container} className="flexible-item-container">
+					<div style={styles.fields}>
+						{mapItemFields(this.props.item)}
+					</div>
+					<button onClick={() => action(item.id)}>Select</button>
 				</div>
 			);
 		} else {
@@ -34,5 +37,12 @@ function mapItemFields(item: any) {
 const styles = {
 	container: {
 		border: '1px solid black',
+		display: 'flex',
+		justifyContent: 'space-between',
+		padding: '6px',
+	},
+	fields: {
+		alignItems: 'center',
+		display: 'flex',
 	},
 };
