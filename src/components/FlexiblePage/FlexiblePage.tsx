@@ -57,7 +57,7 @@ export default class FlexiblePage<Type extends IBaseObject> extends GenericPageC
 		const selectedItem = filteredItems.length > 0 ? filteredItems[0] : null;
 		// const title = getMatchingComponent(titleMap, dataType);
 		const ItemsListComponent = getMatchingComponent(itemsListComponentMap, 'default');
-		const ItemDetailComponent = getMatchingComponent(itemDetailComponentMap, 'default');
+		const ItemDetailComponent = getMatchingComponent(itemDetailComponentMap, componentType);
 
 		if (isValidArray(items)) {
 			return (

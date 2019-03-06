@@ -21,3 +21,15 @@ export const isValidArray = (array: any[]): boolean => {
 export const isValidObject = (item: any): boolean => {
 	return (item);
 }
+
+const isValidString = (text: any): boolean => {
+	return (text && typeof(text) === 'string' && text.length > 0);
+}
+
+export function convertToTitleCase(text: string): string {
+	if (isValidString(text)) {
+		const lowerCaseText = text.toLowerCase();
+		return `${lowerCaseText[0].toUpperCase()}${lowerCaseText.slice(1)}`;
+	}
+	return '';
+}

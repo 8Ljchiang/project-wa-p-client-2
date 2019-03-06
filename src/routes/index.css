@@ -1,0 +1,8 @@
+.menu-item__text {
+	color: white;
+	margin: 14px;
+}
+
+.menu-container {
+	display: flex;
+}

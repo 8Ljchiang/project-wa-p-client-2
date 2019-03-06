@@ -1,20 +1,26 @@
 import React from 'react';
 
 import { Route, Switch, Link } from 'react-router-dom';
-import { routes, IRouteData } from './routes';
+import { routes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
+
+import './index.css';
+import { dataMap } from '../seed/data';
+import { appConfig } from '../helpers/appConfig';
 
 export default () => {
+	const { displayType } = appConfig;
+	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(dataMap, displayType));
 	return (
 		<React.Fragment>
-			<div style={styles.container}>
-				{routes.map((route: IRouteData, index: number) => {
+			<div className="menu-container">
+				{allRoutes.map((route: IRouteData, index: number) => {
 					return (
-						<Link style={styles.menuItem} key={`l-${index}`} to={route.path}>{route.title}</Link>
+						<Link className="menu-item__text" key={`l-${index}`} to={route.path}>{route.title}</Link>
 					);
 				})}
 			</div>
 			<Switch>
-				{routes.map((route, index) => {
+				{allRoutes.map((route, index) => {
 					return (
 						<Route
 							key={`r-${index}`}
@@ -27,13 +33,4 @@ export default () => {
 			</Switch>
 		</React.Fragment>
 	);
-};
-
-const styles = {
-	container: {
-		display: 'flex',
-	},
-	menuItem: {
-		marginLeft: '10px',
-	},
 };
