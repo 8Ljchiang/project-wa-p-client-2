@@ -10,7 +10,10 @@
 		"quotemark": [true, "single", "jsx-double"],
 		"indent": [true, "tabs"],
 		"member-access": [true, "no-public"],
-		"ordered-imports": [false]
+		"ordered-imports": [false],
+		"disable-next-line": [true],
+		"jsx-no-multiline-js": [false],
 	},
     "rulesDirectory": []
 }
+// tslint:disable-next-line: jsx-no-multiline-js

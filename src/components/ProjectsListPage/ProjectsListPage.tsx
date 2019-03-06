@@ -1,8 +1,12 @@
+/**
+ * Depricated
+ */
+
 import React, { Component } from 'react';
 
-import FlexibleItemsList from '../FlexibleItemsList/FlexibleItemsList';
-import { getProjects, IProject, ISession, getSessions } from '../../seed/data';
-import FlexibleItemDetail from '../FlexibleItemDetail/FlexibleItemDetail';
+import FlexibleItemsListView from '../FlexibleItemsList/FlexibleItemsList';
+import { getProjects, IProject } from '../../seed/data';
+import FlexibleItemDetailView from '../FlexibleItemDetail/FlexibleItemDetailView';
 
 export default class ProjectsListPage extends Component {
 	render() {
@@ -12,10 +16,10 @@ export default class ProjectsListPage extends Component {
 				<h3 className="page-container__title">Projects List Page</h3>
 				<div style={styles.bottom}>
 					<div style={styles.left}>
-						<FlexibleItemsList<IProject> items={projects} type="project" />
+						<FlexibleItemsListView<IProject> items={projects} type="project" />
 					</div>
 					<div style={styles.right}>
-						<FlexibleItemDetail<IProject> item={projects[0]} type="project" />
+						<FlexibleItemDetailView<IProject> item={projects[0]} type="project" />
 					</div>
 				</div>
 			</div>

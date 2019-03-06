@@ -1,5 +1,8 @@
+/**
+ * Depricated
+ */
 import React, { Component } from 'react';
-import SessionListItem from '../SessionListItem/SessionListItem';
+import SessionItemView from '../SessionItem/SessionItemView';
 
 export interface ISessionListProps {
 	sessions: any[];
@@ -8,7 +11,7 @@ export interface ISessionListProps {
 export default class SessionList extends Component<ISessionListProps, {}> {
 	renderSessions() {
 		return this.props.sessions.map((session: any, index) => {
-			return <SessionListItem key={index} item={session} />;
+			return <SessionItemView key={index} item={session} />;
 		});
 	}
 

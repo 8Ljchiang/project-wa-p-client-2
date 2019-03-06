@@ -1,17 +1,12 @@
+/**
+ * Depricated
+ */
+
 import React from 'react';
 
 import { IBaseObject } from '../../seed/data';
 import { IComponentType, getMatchingComponent } from '../../helpers/componentHelpers';
 import { itemComponentMap } from '../../helpers/componentMaps';
-
-import ProjectListItem from '../ProjectListItem/ProjectListItem';
-import SessionListItem from '../SessionListItem/SessionListItem';
-
-const itemComponents: any = {
-	default: ProjectListItem,
-	project: ProjectListItem,
-	session: SessionListItem,
-};
 
 export interface IFlexibleListProps<T> {
 	items: T[];

@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import { IBaseObject, getItems, IDataType } from '../../seed/data';
-import { IComponentType, getMatchingComponent, IComponentDisplayType } from '../../helpers/componentHelpers';
-import { titleMap } from '../../helpers/componentTitleMap';
-// import FlexibleItemDetail from '../FlexibleItemDetail/FlexibleItemDetail';
-// import ClickableFlexibleItemsList from '../FlexibleItemsList/ClickableFlexibleItemsList';
-import { itemsListComponentMap, itemDetailComponentMap } from '../../helpers/componentMaps';
-import { isValidArray } from '../../helpers/utils';
+import React from 'react';
+
 import GenericPageComponent from './GenericPage';
+import { getMatchingComponent, IComponentDisplayType } from '../../helpers/componentHelpers';
+import { itemsListComponentMap, itemDetailComponentMap } from '../../helpers/componentMaps';
+import { IBaseObject, getItems, IDataType } from '../../seed/data';
+import { isValidArray } from '../../helpers/utils';
+
+import './FlexiblePage.css';
 
 export interface IFlexiblePageProps {
 	displayType: IComponentDisplayType;
 	dataType: IDataType;
+	title: string;
 }
 
 export interface IFlexiblePageState<T> {
@@ -49,33 +50,38 @@ export default class FlexiblePage<Type extends IBaseObject> extends GenericPageC
 	}
 
 	render() {
-		const { displayType, dataType } = this.props;
+		const { displayType, dataType, title } = this.props;
 		const componentType = displayType === 'default' ? displayType : dataType;
 		const { selectedItemId, items } = this.state;
-		// const { selectedItemId } = this.state;
 		const filteredItems = items.filter((item) => item.id === selectedItemId);
 		const selectedItem = filteredItems.length > 0 ? filteredItems[0] : null;
-		const title = getMatchingComponent(titleMap, dataType);
+		// const title = getMatchingComponent(titleMap, dataType);
 		const ItemsListComponent = getMatchingComponent(itemsListComponentMap, 'default');
 		const ItemDetailComponent = getMatchingComponent(itemDetailComponentMap, 'default');
 
 		if (isValidArray(items)) {
 			return (
-				<div style={styles.container} className="flexible-page-container">
-					<h3 className="flexible-page-container__title">{title}</h3>
-					<div style={styles.bottom}>
-						<div style={styles.left}>
-							<ItemsListComponent items={items} type={componentType} action={this.setSelectedItemId} />
+				<div className="flexible-page-container">
+					<div className="flexible-page__header">
+						<h2 className="flexible-page__header-title">{title}</h2>
+					</div>
+					<div className="flexible-page__body">
+						<div className="flexible-page__body-left">
+							<ItemsListComponent<Type> items={items} type={componentType} action={this.setSelectedItemId} />
 						</div>
-						<div style={styles.right}>
-							<ItemDetailComponent item={selectedItem} type={componentType} />
+						<div className="flexible-page__body-right">
+							<ItemDetailComponent<Type> item={selectedItem} type={componentType} />
 						</div>
 					</div>
 				</div>
 			);
 		} else {
 			return (
-				<div style={styles.container} className="flexible-page-container">Unable to load data...</div>
+				<div className="flexible-page-container">
+					<div className="flexible-page__header">
+						<h2>Unable to load data...</h2>
+					</div>
+				</div>
 			);
 		}
 	}
@@ -143,20 +149,3 @@ export default class FlexiblePage<Type extends IBaseObject> extends GenericPageC
 // 		}
 // 	}
 // }
-
-const styles = {
-	bottom: {
-		display: 'flex',
-	},
-	container: {
-		border: '1px solid blue',
-		display: 'flex',
-		flexFlow: 'column',
-	},
-	left: {
-		flex: 1,
-	},
-	right: {
-		flex: 1,
-	},
-};

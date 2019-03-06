@@ -1,0 +1,29 @@
+.flexible-page-container {
+	/* border: 1px solid blue; */
+	display: flex;
+	flex-flow: column;
+	margin: 16px;
+}
+
+.flexible-page__header {
+	display: flex;
+	margin: 10px;
+}
+
+.flexible-page__header-title {
+	color: lightgray;
+}
+
+.flexible-page__body {
+	display: flex;
+}
+
+.flexible-page__body-left {
+	width: 600px;
+	min-width: 400px;
+}
+
+.flexible-page__body-right {
+	flex: 1;
+	min-width: 400px;
+}

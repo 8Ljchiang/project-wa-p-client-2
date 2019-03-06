@@ -1,54 +1,56 @@
-import React from 'react';
-
-import FlexibleItemDetail from '../components/FlexibleItemDetail/FlexibleItemDetail';
-// import ProjectDetail from '';
-// import SessionDetail from '';
-
 import ClickableFlexibleItemsList from '../components/FlexibleItemsList/ClickableFlexibleItemsList';
-// import ProjectsList from '';
-import SessionList from '../components/SessionList/SessionList';
 
-import FlexibleItem from '../components/FlexibleItem/FlexibleItem';
-import SessionListItem from '../components/SessionListItem/SessionListItem';
-import ProjectListItem from '../components/ProjectListItem/ProjectListItem';
-import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
-import GenericPageComponent, { IGenericPageComponent } from '../components/FlexiblePage/GenericPage';
+import FlexibleItemDetailView from '../components/FlexibleItemDetail/FlexibleItemDetailView';
+import ProjectItemDetailView from '../components/ProjectItemDetail/ProjectItemDetailView';
+import SessionItemDetailView from '../components/SessionItemDetail/SessionItemDetailView';
 
-export const itemDetailComponentMap = {
-	default: FlexibleItemDetail,
-	project: null,
-	session: SessionList,
+import FlexibleItemView from '../components/FlexibleItem/FlexibleItemView';
+import ProjectItemView from '../components/ProjectItem/ProjectItemView';
+import SessionItemView from '../components/SessionItem/SessionItemView';
+import { IComponentType } from './componentHelpers';
+
+// import SessionList from '../components/SessionList/SessionList';
+// import { IGenericPageComponent } from '../components/FlexiblePage/GenericPage';
+
+export type IComponentMapType = {
+	[key in IComponentType]: any;
+}
+
+export const itemDetailComponentMap: IComponentMapType = {
+	default: FlexibleItemDetailView,
+	project: ProjectItemDetailView,
+	session: SessionItemDetailView,
 };
 
-export const itemsListComponentMap = {
+export const itemsListComponentMap: IComponentMapType = {
 	default: ClickableFlexibleItemsList,
 	project: null,
-	session: SessionList,
+	session: null,
 };
 
-export const itemComponentMap = {
-	default: FlexibleItem,
-	project: ProjectListItem,
-	session: SessionListItem,
+export const itemComponentMap: IComponentMapType = {
+	default: FlexibleItemView,
+	project: ProjectItemView,
+	session: SessionItemView,
 };
 
-export interface ISectionMapType {
-	[key: string]: string;
-	projects: string;
-	sessions: string;
-}
+// export interface ISectionMapType {
+// 	[key: string]: string;
+// 	projects: string;
+// 	sessions: string;
+// }
 
-export const sectionMaps: ISectionMapType = {
-	projects: 'Projects',
-	sessions: 'Sessions',
-};
+// export const sectionMaps: ISectionMapType = {
+// 	projects: 'Projects',
+// 	sessions: 'Sessions',
+// };
 
-interface IContainerComponentMap<T> {
-	[key: string]: IGenericPageComponent<T>;
-}
+// interface IContainerComponentMap<T> {
+// 	[key: string]: IGenericPageComponent<T>;
+// }
 
 // The components need to extend GenericPageComponent
-export const containerComponentMap = {
-	default: FlexiblePage,
-	flexPage: FlexiblePage,
-};
+// export const containerComponentMap = {
+// 	default: FlexiblePage,
+// 	flexPage: FlexiblePage,
+// };

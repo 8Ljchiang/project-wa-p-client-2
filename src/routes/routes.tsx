@@ -1,7 +1,9 @@
 import React from 'react';
 
-import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
 import HomePage from '../components/HomePage/HomePage';
+import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
+
+import { IProject, ISession } from '../seed/data';
 
 export interface IRouteData {
 	component: () => any;
@@ -10,21 +12,24 @@ export interface IRouteData {
 	title: string;
 }
 
+/**
+ * Routes array is used to the <Link> and <Route> components.
+ */
 export const routes: IRouteData[] = [
 	{
-		component: () => <HomePage/>,
+		component: () => <HomePage />,
 		exact: true,
 		path: '/',
 		title: 'Home',
 	},
 	{
-		component: () => <FlexiblePage dataType="project" displayType="default" />,
+		component: () => <FlexiblePage<IProject> dataType="project" displayType="default" title="Projects List Page" />,
 		exact: true,
 		path: '/flex-projects',
 		title: 'Project',
 	},
 	{
-		component: () => <FlexiblePage dataType="session" displayType="default" />,
+		component: () => <FlexiblePage<ISession> dataType="session" displayType="default" title="Sessions List Page" />,
 		exact: true,
 		path: '/flex-sessions',
 		title: 'Session',

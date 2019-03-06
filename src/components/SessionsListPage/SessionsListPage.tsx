@@ -1,3 +1,7 @@
+/**
+ * Depricated
+ */
+
 import React, { Component } from 'react';
 
 import SessionList from '../SessionList/SessionList';

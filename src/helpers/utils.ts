@@ -17,3 +17,7 @@ executeIfFunction(switchcase(cases)(defaultCase)(type), context);
 export const isValidArray = (array: any[]): boolean => {
 	return (array && Array.isArray(array) && array.length > 0);
 }
+
+export const isValidObject = (item: any): boolean => {
+	return (item);
+}
