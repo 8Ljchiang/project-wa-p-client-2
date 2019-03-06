@@ -43,7 +43,7 @@ export function getDataBasedRoutes(dataMap: IDataMap, displayType: IComponentDis
 	Object.keys(dataMap).forEach((key: string) => {
 		const dataType = key as IDataType;
 		const titleCaseName = convertToTitleCase(key);
-		const pageTitle = `${titleCaseName} List Page`;
+		const pageTitle = `${titleCaseName}s List Page`;
 		const routeObject: IRouteData = {
 			component: () => <FlexiblePage dataType={dataType} displayType={displayType} title={pageTitle} />,
 			exact: true,

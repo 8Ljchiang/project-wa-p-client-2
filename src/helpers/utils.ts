@@ -22,7 +22,7 @@ export const isValidObject = (item: any): boolean => {
 	return (item);
 }
 
-const isValidString = (text: any): boolean => {
+export const isValidString = (text: any): boolean => {
 	return (text && typeof(text) === 'string' && text.length > 0);
 }
 

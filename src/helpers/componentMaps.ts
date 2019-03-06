@@ -20,18 +20,21 @@ export const itemDetailComponentMap: IComponentMapType = {
 	default: FlexibleItemDetailView,
 	project: ProjectItemDetailView,
 	session: SessionItemDetailView,
+	exercise: null,
 };
 
 export const itemsListComponentMap: IComponentMapType = {
 	default: ClickableFlexibleItemsList,
 	project: null,
 	session: null,
+	exercise: null,
 };
 
 export const itemComponentMap: IComponentMapType = {
 	default: FlexibleItemView,
 	project: ProjectItemView,
 	session: SessionItemView,
+	exercise: null,
 };
 
 // export interface ISectionMapType {
