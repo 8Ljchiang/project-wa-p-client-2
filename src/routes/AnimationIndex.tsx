@@ -43,7 +43,6 @@ import './index.css';
 // 		</Switch>
 // 	);
 // }
-const DURATION: number = 600 * 2;
 let prevPaths: string[] = ['/'];
 
 const Menu = (props: any) => {
@@ -73,6 +72,7 @@ export default () => {
 			render={({ location, history }) => {
 				prevPaths.push(location.pathname);
 				// console.log('prevPath', prevPath, "currentLocation", location.pathname, 'length', prevPaths.length);
+				const totalDuration = appConfig.animationDuration * 2;
 				const mainRoutes = ["/", "/profile", "/highlights"];
 				const animationName = mainRoutes.includes(location.pathname) && !mainRoutes.includes(prevPath) ? "up" : "right";
 				return (
@@ -81,7 +81,7 @@ export default () => {
 						<TransitionGroup>
 							<CSSTransition
 								key={location.key}
-								timeout={DURATION}
+								timeout={totalDuration}
 								classNames={animationName}
 								>
 								<Switch location={location}>
