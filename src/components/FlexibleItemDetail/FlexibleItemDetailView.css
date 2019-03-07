@@ -1,6 +1,7 @@
 .flexible-item-detail-container {
 	/* border: 1px solid gray; */
 	background: palevioletred;
+	border-radius: 4px;
 	box-shadow: 0px 0px 3px 3px rgba(50, 50, 50, 0.6);
 	display: flex;
 	flex-flow: column;

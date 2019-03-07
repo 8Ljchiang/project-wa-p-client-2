@@ -2,13 +2,15 @@ import React from 'react';
 
 import HomePage from '../components/HomePage/HomePage';
 import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
+import AnimatedPageHoc from '../components/AnimatedPage/AnimationComponent';
+import AnimatedFlexiblePage from '../components/FlexiblePage/AnimatedFlexiblePage';
 
 import { IDataMap, IDataType } from '../seed/data';
 import { IComponentDisplayType } from './componentHelpers';
 import { convertToTitleCase } from './utils';
 
 export interface IRouteData {
-	component: () => any;
+	component: (routerProps: any) => any;
 	exact: boolean;
 	path: string;
 	title: string;
@@ -23,6 +25,18 @@ export const routes: IRouteData[] = [
 		exact: true,
 		path: '/',
 		title: 'Home',
+	},
+	{
+		component: () => <HomePage />,
+		exact: true,
+		path: '/highlights',
+		title: 'Highlights',
+	},
+	{
+		component: () => <HomePage />,
+		exact: true,
+		path: '/profile',
+		title: 'Profile',
 	},
 	// {
 	// 	component: () => <FlexiblePage<IProject> dataType="project" displayType="default" title="Projects List Page" />,
@@ -44,11 +58,12 @@ export function getDataBasedRoutes(dataMap: IDataMap, displayType: IComponentDis
 		const dataType = key as IDataType;
 		const titleCaseName = convertToTitleCase(key);
 		const pageTitle = `${titleCaseName}s List Page`;
+		const routePath = `/flex-${key}s`;
 		const routeObject: IRouteData = {
-			component: () => <FlexiblePage dataType={dataType} displayType={displayType} title={pageTitle} />,
+			component: (routerProps: any) => { return AnimatedPageHoc(AnimatedFlexiblePage, { ...routerProps, routePath, dataType, displayType, title: pageTitle }) }, //dataType={dataType} displayType={displayType} title={pageTitle} />,
 			exact: true,
-			path: `/flex-${key}s`,
 			title: titleCaseName,
+			path: routePath,
 		};
 		result.push(routeObject);
 	});

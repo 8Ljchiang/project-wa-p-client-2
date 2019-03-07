@@ -1,12 +1,13 @@
 .flexible-item-container {
 	box-shadow: 0px 0px 3px 3px rgba(50, 50, 50, 0.6);
 	/* background: palevioletred; */
+	border-radius: 4px;
 	background: rgba(240, 240, 240, 0.2);
 	border: 1px dashed lightgray;
 	display: flex;
 	padding: 10px;
 	justify-content: space-between;
-	margin-bottom: 10px;
+	margin-bottom: 16px;
 }
 
 .flexible-item__details {

@@ -1,0 +1,112 @@
+.fade-enter {
+	opacity: 0;
+}
+.fade-enter.fade-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+.fade-leave {
+	opacity: 1;
+}
+.fade-leave.fade-leave-active {
+	opacity: 0;
+	transition: opacity 300ms ease-in;
+}
+
+.right-enter {
+  transform: translateX(-120%);
+  transition-delay: 600ms;
+}
+.right-enter.right-enter-active {
+  transform: translateX(0%);
+  transition: transform 600ms ease-in-out;
+  transition-delay: 200ms;
+}
+.right-exit {
+  z-index: 1;
+  transform: translateX(0%);
+  /* transition-delay: 600ms; */
+}
+.right-exit.right-exit-active {
+  z-index: 1;
+  transform: translateX(120%);
+  transition: transform 600ms ease-in-out;
+}
+
+.up-enter {
+  transform: translateY(-120%);
+  transition-delay: 600ms;
+}
+.up-enter.up-enter-active {
+  transform: translateY(0%);
+  transition: transform 600ms ease-in-out;
+  transition-delay: 200ms;
+}
+.up-exit {
+  z-index: 1;
+  transform: translateY(0%);
+  /* transition-delay: 600ms; */
+}
+.up-exit.up-exit-active {
+  z-index: 1;
+  transform: translateY(120%);
+  transition: transform 600ms ease-in-out;
+}
+
+/* .fadeIn-enter {
+  opacity: 0;
+  transform: scale(1.3);
+}
+.fadeIn-enter.fadeIn-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 600ms ease-in-out;
+}
+.fadeIn-exit {
+  z-index: -1;
+  opacity: 1;
+  transform: scale(1);
+}
+.fadeIn-exit.fadeIn-exit-active {
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 600ms ease-in-out;
+} */
+
+/* .example-enter {
+	opacity: 0.01;
+  }
+  .example-enter.example-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+  }
+  .example-leave {
+	opacity: 1;
+  }
+  .example-leave.example-leave-active {
+	opacity: 0.01;
+	transition: opacity 300ms ease-in;
+  } */
+
+/* .move-enter {
+  opacity: 0.01;
+  transform: translate(-40px, 0)
+}
+
+.move-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms ease-in;
+}
+
+.move-exit {
+  opacity: 1;
+  transform: translate(0, 0)
+}
+
+.move-exit-active {
+  opacity: 0.01;
+  transform: translate(40px, 0);
+  transition: all 500ms ease-in;
+} */

@@ -1,10 +1,22 @@
-.create-item-form__text-input {
-	margin-bottom: 10px;
-	padding: 6px;
+.flexible-item-create-container {
+	background: palevioletred;
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px 3px rgba(50, 50, 50, 0.6);
+	display: flex;
+	flex-flow: column;
+	padding: 10px;
+	margin: 10px;
+	margin-bottom: 16px;
 }
 
 .create-item-form-container {
+	/* border-radius: 4px; */
 	display: flex;
+}
+
+.create-item-form__text-input {
+	margin-bottom: 16px;
+	padding: 6px;
 }
 
 .create-item-form {
@@ -16,15 +28,6 @@
 .create-item-form__submit-button {
 	background: darkgray;
 	padding: 6px;
-}
-
-.flexible-item-create-container {
-	background: palevioletred;
-	box-shadow: 0px 0px 3px 3px rgba(50, 50, 50, 0.6);
-	display: flex;
-	flex-flow: column;
-	padding: 10px;
-	margin: 10px;
 }
 
 .create-item-form__create_button {
