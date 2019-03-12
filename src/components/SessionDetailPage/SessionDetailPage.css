@@ -1,0 +1,6 @@
+.session-detail-page-container {
+	display: flex;
+	flex-flow: column;
+	padding: 16px;
+	width: 100%;
+}

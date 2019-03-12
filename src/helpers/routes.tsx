@@ -8,6 +8,7 @@ import AnimatedFlexiblePage from '../components/FlexiblePage/AnimatedFlexiblePag
 import { IDataMap, IDataType } from '../seed/data';
 import { IComponentDisplayType } from './componentHelpers';
 import { convertToTitleCase } from './utils';
+import SessionDetailPage from '../components/SessionDetailPage/SessionDetailPage';
 
 export interface IRouteData {
 	component: (routerProps: any) => any;
@@ -38,6 +39,12 @@ export const routes: IRouteData[] = [
 		path: '/profile',
 		title: 'Profile',
 	},
+	{
+		component: () => <SessionDetailPage />,
+		exact: true,
+		path: '/sessions/:sessionId',
+		title: 'Session Detail Page'
+	}
 	// {
 	// 	component: () => <FlexiblePage<IProject> dataType="project" displayType="default" title="Projects List Page" />,
 	// 	exact: true,
