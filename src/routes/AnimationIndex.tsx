@@ -2,9 +2,9 @@ import React from 'react';
 
 import { withRouter } from 'react-router';
 import { Route, Switch, Link } from 'react-router-dom';
-import { routes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
+import { routes, detailPageRoutes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
 
-import { dataMap } from '../seed/data';
+import { exampleDataSet } from '../seed/data';
 import { appConfig } from '../helpers/appConfig';
 
 import styled from 'styled-components';
@@ -47,7 +47,7 @@ let prevPaths: string[] = ['/'];
 
 const Menu = (props: any) => {
 	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(dataMap, displayType));
+	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet, displayType));
 	return (<div className="menu-container">
 		{allRoutes.map((route: IRouteData, index: number) => {
 			return (
@@ -65,11 +65,12 @@ const Menu = (props: any) => {
 
 export default () => {
 	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(dataMap, displayType));
+	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet	, displayType)).concat(detailPageRoutes);
 	const prevPath: string = prevPaths.shift()!.toString();
 	return (	
 		<Route
-			render={({ location, history }) => {
+			render={({ location, history, match }) => {
+				console.log(match);
 				prevPaths.push(location.pathname);
 				// console.log('prevPath', prevPath, "currentLocation", location.pathname, 'length', prevPaths.length);
 				const totalDuration = appConfig.animationDuration * 2;
@@ -101,7 +102,7 @@ export default () => {
 					</React.Fragment>
 				);
 			}}
-		/>	
+		/>
 	);
 };
 

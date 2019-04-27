@@ -1,0 +1,11 @@
+.feature-container {
+	display: flex;
+	flex-flow: column;
+	padding: 10px;
+	border: 2px solid gray;
+	margin-bottom: 10px;
+}
+
+.step-checkbox-container {
+	margin-bottom:6px;
+}

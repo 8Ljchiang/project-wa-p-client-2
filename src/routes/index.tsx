@@ -4,12 +4,12 @@ import { Route, Switch, Link } from 'react-router-dom';
 import { routes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
 
 import './index.css';
-import { dataMap } from '../seed/data';
+import { exampleDataSet } from '../seed/data';
 import { appConfig } from '../helpers/appConfig';
 
 export default () => {
 	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(dataMap, displayType));
+	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet, displayType));
 	return (
 		<React.Fragment>
 			<div className="menu-container">

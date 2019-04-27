@@ -1,11 +1,11 @@
 import React from 'react';
 
 import HomePage from '../components/HomePage/HomePage';
-import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
+// import FlexiblePage from '../components/FlexiblePage/FlexiblePage';
 import AnimatedPageHoc from '../components/AnimatedPage/AnimationComponent';
 import AnimatedFlexiblePage from '../components/FlexiblePage/AnimatedFlexiblePage';
 
-import { IDataMap, IDataType } from '../seed/data';
+import { IDataMap, IDataType, IDataSetExample } from '../seed/data';
 import { IComponentDisplayType } from './componentHelpers';
 import { convertToTitleCase } from './utils';
 import SessionDetailPage from '../components/SessionDetailPage/SessionDetailPage';
@@ -22,29 +22,23 @@ export interface IRouteData {
  */
 export const routes: IRouteData[] = [
 	{
-		component: () => <HomePage />,
+		component: (props: any) => <HomePage {...props}/>,
 		exact: true,
 		path: '/',
 		title: 'Home',
 	},
 	{
-		component: () => <HomePage />,
+		component: (props: any) => <HomePage {...props}/>,
 		exact: true,
 		path: '/highlights',
 		title: 'Highlights',
 	},
 	{
-		component: () => <HomePage />,
+		component: (props: any) => <HomePage {...props}/>,
 		exact: true,
 		path: '/profile',
 		title: 'Profile',
 	},
-	{
-		component: () => <SessionDetailPage />,
-		exact: true,
-		path: '/sessions/:sessionId',
-		title: 'Session Detail Page'
-	}
 	// {
 	// 	component: () => <FlexiblePage<IProject> dataType="project" displayType="default" title="Projects List Page" />,
 	// 	exact: true,
@@ -59,9 +53,24 @@ export const routes: IRouteData[] = [
 	// },
 ];
 
-export function getDataBasedRoutes(dataMap: IDataMap, displayType: IComponentDisplayType): IRouteData[] {
+export const detailPageRoutes = [
+	{
+		component: (props: any) => <SessionDetailPage {...props}/>,
+		exact: true,
+		path: '/sessions/:sessionId',
+		title: 'Session Detail Page'
+	},
+	{
+		component: (props: any) => { return <div>Project Details Page Placeholder</div> },
+		exact: true,
+		path: '/projects/:projectId',
+		title: 'Project Detail Page',
+	},
+];
+
+export function getDataBasedRoutes(exampleDataSet: IDataSetExample, displayType: IComponentDisplayType): IRouteData[] {
 	const result: IRouteData[] = [];
-	Object.keys(dataMap).forEach((key: string) => {
+	Object.keys(exampleDataSet).forEach((key: string) => {
 		const dataType = key as IDataType;
 		const titleCaseName = convertToTitleCase(key);
 		const pageTitle = `${titleCaseName}s List Page`;

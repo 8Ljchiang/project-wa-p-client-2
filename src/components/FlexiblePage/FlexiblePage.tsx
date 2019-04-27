@@ -53,7 +53,7 @@ export default class FlexiblePage<Type extends IBaseObject> extends GenericPageC
 
 	render() {
 		const { displayType, dataType, title } = this.props;
-		const componentType = displayType === 'default' ? displayType : dataType;
+		const componentType = displayType === 'custom' ? dataType : displayType;
 		const { selectedItemId, items } = this.state;
 		const filteredItems = items.filter((item) => item.id === selectedItemId);
 		const selectedItem = filteredItems.length > 0 ? filteredItems[0] : null;
@@ -69,7 +69,7 @@ export default class FlexiblePage<Type extends IBaseObject> extends GenericPageC
 					</div>
 					<div className="flexible-page__body">
 						<div className="flexible-page__body-left">
-							<ItemsListComponent<Type> items={items} type={componentType} action={this.setSelectedItemId} />
+							<ItemsListComponent<Type> items={items} type={componentType} action={this.setSelectedItemId} dataType={dataType} />
 						</div>
 						<div className="flexible-page__body-right">
 							<FlexibleItemCreateForm item={items[0]} itemType={dataType} />

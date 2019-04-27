@@ -1,7 +1,8 @@
-import { switchcaseF } from '../helpers/utils';
+import { switchcaseF, isValidString, isValidArray } from '../helpers/utils';
+import { any } from 'prop-types';
 
 export type IDataType =
-	'project' | 'session' | 'exercise';
+	'project' | 'session' | 'exercise' | 'user' | 'message'; // | 'message' | 'user';
 
 export type IDataMap = {
 	[key in IDataType]: any;
@@ -12,41 +13,16 @@ export type IDataMap = {
 
 // }
 
-
 export const dataMap: IDataMap = {
 	project: getProjects,
 	session: getSessions,
-	exercise: getExercises,
+	exercise: getExercises, 
+	message: null,
+	user: null,
 };
 
 type IDataSetExampleType = {
 	[key in IDataType]: any;
-}
-
-interface IDataSetExample extends IDataSetExampleType {
-	project: IProject;
-	exercise: IExercise;
-	session: ISession;
-}
-
-const exampleDataSet: IDataSetExample = {
-	project: {
-		id: '',
-		title: '',
-		description: '',
-		type: '',
-	},
-	session: {
-		id: '',
-		title: '',
-		description: '',
-	},
-	exercise: {
-		id: '',
-		title: '',
-		description: '',
-		type: '',
-	},
 }
 
 export interface IBaseObject {
@@ -57,67 +33,147 @@ export interface IProject extends IBaseObject {
 	title: string;
 	description: string;
 	type: string;
+	repo: string;
+	features: string[];
 }
 
 export interface ISession extends IBaseObject {
 	title: string;
 	description: string;
+	visibility: string;
+	access: string;
+	updatedAt: string;
+	projectId: string;
+	creatorId: string;
+	participants: string;
+	type: string;
+	category: string;
+	tags: string;
+	userIds: string[];
 }
 
 export interface IExercise extends IBaseObject {
 	title: string;
 	description: string;
 	type: string;
+	repo: string;
 }
 
+export interface IUser extends IBaseObject {
+	username: string;
+}
+
+export interface IMessage extends IBaseObject {
+	title: string; 
+	description: string;
+	content: string;
+	author: string;
+}
+
+export interface IDataSetExample extends IDataSetExampleType {
+	project: IProject;
+	exercise: IExercise;
+	session: ISession;
+	message: IMessage;
+	user: IUser;
+}
+
+export const exampleDataSet: IDataSetExample = {
+	project: {
+		id: '',
+		title: '',
+		description: '',
+		repo: 'http://www.github.com/',
+		type: '',
+		features: ['feature-1', 'feature-2', 'feature-3'],
+	},
+	session: {
+		id: '',
+		visibility: 'global',
+		access: 'public',
+		updatedAt: '',
+		projectId: 'project-id-0',
+		creatorId: '',
+		title: '',
+		participants: '',
+		description: '',
+		type: '',
+		category: '',
+		tags: '',
+		userIds: ['user-id-0', 'user-id-1', 'user-id-2'],
+	},
+	exercise: {
+		id: '',
+		title: '',
+		description: '',
+		type: '',
+		repo: 'http://www.github.com/',
+	},
+	message: {
+		id: '',
+		content: '',
+		author:'',
+		description: '',
+		title: '',
+	},
+	user: {
+		id: '',
+		username: '',
+	}
+}
+
+
+// Depricated
 export function getProjects(count: number = 5): IProject[] {
 	const results: IProject[] = [];
 	for (let i = 0; i < count; i++) {
-		results.push({
-			description: `project-desc-${i}`,
-			id: `p-${i}`,
-			title: `project-title-${i}`,
-			type: `project-type-${i}`,
-		});
+		// results.push({
+		// 	description: `project-desc-${i}`,
+		// 	id: `p-${i}`,
+		// 	title: `project-title-${i}`,
+		// 	type: `project-type-${i}`,
+		// });
 	}
 	return results;
 }
 
+// Depricated
 export function getSessions(count: number = 5): ISession[] {
 	const results: ISession[] = [];
 	for (let i = 0; i < count; i++) {
-		results.push({
-			description: `session-desc-${i}`,
-			id: `s-${i}`,
-			title: `session-title-${i}`,
-		});
+		// results.push({
+		// 	description: `session-desc-${i}`,
+		// 	id: `s-${i}`,
+		// 	title: `session-title-${i}`,
+		// });
 	}
 	return results;
 }
 
+// Depricated
 export function getExercises(count: number = 5): IExercise[] {
 	const results: IExercise[] = [];
 	for (let i = 0; i < count; i++) {
-		const exercise: IExercise = {
-			description: `exercise-desc-${i}`,
-			id: `e-${i}`,
-			title: `exercise-title-${i}`,
-			type: `exercise-type-${i}`,
-		};
+		// const exercise: IExercise = {
+		// 	description: `exercise-desc-${i}`,
+		// 	id: `e-${i}`,
+		// 	title: `exercise-title-${i}`,
+		// 	type: `exercise-type-${i}`,
+		// };
 
-		results.push(exercise);
+		// results.push(exercise);
 	}
 	return results;
 }
 
-function generateDataItemSet(exampleItem: any, count: number, itemName: string): any {
+function generateDataItemSet(exampleItem: any, count: number, itemName: string): any[] {
 	const itemKeys = Object.keys(exampleItem);
 	if ( exampleItem && itemKeys.length> 0) {
 		const results = [];
 		for (let i = 0; i < count; i++) {
 			const item: any = {};
 			for (let key of itemKeys) {
-				item[key] = `${itemName}-${key.slice(0, 4)}-${i}`;
+				item[key] = isValidString(exampleItem[key]) || isValidArray(exampleItem[key]) ? exampleItem[key] : `${itemName}-${key.slice(0, 4)}-${i}`;
 			}
 			results.push(item);
 		}

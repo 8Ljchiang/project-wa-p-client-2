@@ -6,7 +6,7 @@ export default class HomePage extends Component {
 	render() {
 		return (
 			<div className="page-container">
-				<h1>Welcome to the Pairing App</h1>
+				<h1>Default Page Component</h1>
 			</div>
 		);
 	}

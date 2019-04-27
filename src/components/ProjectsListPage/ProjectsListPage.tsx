@@ -5,10 +5,14 @@
 import React, { Component } from 'react';
 
 import FlexibleItemsListView from '../FlexibleItemsList/FlexibleItemsList';
-import { getProjects, IProject } from '../../seed/data';
+import { getProjects, IProject, IDataType } from '../../seed/data';
 import FlexibleItemDetailView from '../FlexibleItemDetail/FlexibleItemDetailView';
 
-export default class ProjectsListPage extends Component {
+interface IProjectsListPage {
+	dataType: IDataType;
+}
+
+export default class ProjectsListPage extends Component<IProjectsListPage, {}> {
 	render() {
 		const projects: IProject[] = getProjects(10);
 		return (
@@ -16,7 +20,7 @@ export default class ProjectsListPage extends Component {
 				<h3 className="page-container__title">Projects List Page</h3>
 				<div style={styles.bottom}>
 					<div style={styles.left}>
-						<FlexibleItemsListView<IProject> items={projects} type="project" />
+						<FlexibleItemsListView<IProject> items={projects} dataType={this.props.dataType} type="project" />
 					</div>
 					<div style={styles.right}>
 						<FlexibleItemDetailView<IProject> item={projects[0]} type="project" />
