@@ -1,28 +1,18 @@
-// import React from 'react';
-
-// export const IdeasPane = () => {
-// 	return (
-// 		<div className="profile-overlay">
-// 			<h1>Ideas Pane</h1>
-// 		</div>
-// 	);
-// }
-
 import React from 'react';
 
 import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IIdea } from '../../seed/data';
+import { IProject } from '../../seed/data';
 
-interface MyIdeasPaneProps {
-	ideas: IIdea[];
+interface MyProjectsPaneProps {
+	projects: IProject[];
 }
 
-class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
+class MyProjectsPane extends React.Component<MyProjectsPaneProps> {
 	renderData() {
-		return this.props.ideas.map((obj: IIdea) => {
+		return this.props.projects.map((obj: IProject) => {
 			return (
 				<p key={obj.id}>{obj.id}</p>
 			);
@@ -32,7 +22,7 @@ class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
 	render() {
 		return (
 			<div className="profile-overlay">
-				<h1>My Ideas Pane</h1>
+				<h1>My Projects Pane</h1>
 				{this.renderData()}
 			</div>
 		);
@@ -41,7 +31,7 @@ class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
 
 const mapStateToProps = (state: ReduxStore) => {
 	return {
-		ideas: state.idea.ideas,
+		projects: state.project.projects,
 	};
 }
 
@@ -53,4 +43,4 @@ const mapStateToProps = (state: ReduxStore) => {
 // }
 
 // export default InvitesPane;
-export default connect(mapStateToProps, null)(MyIdeasPane);
+export default connect(mapStateToProps, null)(MyProjectsPane);

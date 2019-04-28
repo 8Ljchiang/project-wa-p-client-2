@@ -1,28 +1,18 @@
-// import React from 'react';
-
-// export const IdeasPane = () => {
-// 	return (
-// 		<div className="profile-overlay">
-// 			<h1>Ideas Pane</h1>
-// 		</div>
-// 	);
-// }
-
 import React from 'react';
 
 import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IIdea } from '../../seed/data';
+import { IMessage } from '../../seed/data';
 
-interface MyIdeasPaneProps {
-	ideas: IIdea[];
+interface MyMessagesPaneProps {
+	messages: IMessage[];
 }
 
-class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
+class MyMessagesPane extends React.Component<MyMessagesPaneProps> {
 	renderData() {
-		return this.props.ideas.map((obj: IIdea) => {
+		return this.props.messages.map((obj: IMessage) => {
 			return (
 				<p key={obj.id}>{obj.id}</p>
 			);
@@ -32,7 +22,7 @@ class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
 	render() {
 		return (
 			<div className="profile-overlay">
-				<h1>My Ideas Pane</h1>
+				<h1>My Messages Pane</h1>
 				{this.renderData()}
 			</div>
 		);
@@ -41,7 +31,7 @@ class MyIdeasPane extends React.Component<MyIdeasPaneProps> {
 
 const mapStateToProps = (state: ReduxStore) => {
 	return {
-		ideas: state.idea.ideas,
+		messages: state.message.messages,
 	};
 }
 
@@ -53,4 +43,4 @@ const mapStateToProps = (state: ReduxStore) => {
 // }
 
 // export default InvitesPane;
-export default connect(mapStateToProps, null)(MyIdeasPane);
+export default connect(mapStateToProps, null)(MyMessagesPane);

@@ -12,7 +12,7 @@ export interface IAppViewContextProviderState {
 
 export default class AppViewContextProvider extends Component<{}, IAppViewContextProviderState> {
 	readonly state: IAppViewContextProviderState = {
-		selectedComponentRefName: RightMenuCompRefNames.profile,
+		selectedComponentRefName: RightMenuCompRefNames.Profile,
 		setSelectedOverlayComponent: (componentRefName: RightMenuCompRefNames) => {
 			this.setState({
 				selectedComponentRefName: componentRefName

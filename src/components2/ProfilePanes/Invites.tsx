@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { sendInvite, deleteInvite } from '../../store/invite/actions';
-import { AppState } from '../../store/appReducers';
+import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
 import { IInvite } from '../../seed/data';
 
@@ -17,6 +17,7 @@ class InvitesPane extends React.Component<InvitesPaneProps> {
 	createInvite = () => {
 		const newInvite: IInvite = {
 			id: this.props.invites.length.toString(),
+			title: 'title',
 			sender: 'sender',
 			receiver: 'receiver',
 			message: 'you are invited to join the project',
@@ -44,7 +45,7 @@ class InvitesPane extends React.Component<InvitesPaneProps> {
 	}
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: ReduxStore) => {
 	return {
 		invites: state.invite.invites
 	};

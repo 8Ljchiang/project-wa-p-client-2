@@ -7,15 +7,48 @@ export type IRightMenuLink = {
 
 export const rightMenuLinks: IRightMenuLink[] = [
 	{
-		title: 'User Profile',
-		ref: RightMenuCompRefNames.profile,
+		title: 'My Profile',
+		ref: RightMenuCompRefNames.Profile,
 	},
 	{
-		title: 'Invites',
-		ref: RightMenuCompRefNames.invites,
+		title: 'My Invites',
+		ref: RightMenuCompRefNames.Invites,
 	},
 	{
-		title: 'Ideas',
-		ref: RightMenuCompRefNames.ideas,
+		title: 'My Ideas',
+		ref: RightMenuCompRefNames.Ideas,
 	},
+	{
+		title: 'My Projects',
+		ref: RightMenuCompRefNames.Projects,
+	},
+	{
+		title: 'My Exercises',
+		ref: RightMenuCompRefNames.Exercises,
+	},
+	{
+		title: 'My Messages',
+		ref: RightMenuCompRefNames.Messages,
+	},
+	{
+		title: 'My Project Requests',
+		ref: RightMenuCompRefNames.ProjectRequests,
+	},
+	{
+		title: 'My Sessions',
+		ref: RightMenuCompRefNames.Sessions,
+	},
+	{
+		title: 'Joined Sessions',
+		ref: RightMenuCompRefNames.JoinedSessions,
+	},
+	{
+		title: 'Followed Exercises',
+		ref: RightMenuCompRefNames.FollowedExercises,
+	},
+	{
+		title: 'Followed Users',
+		ref: RightMenuCompRefNames.FollowedUsers,
+	},
+
 ]

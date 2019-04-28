@@ -1,8 +1,8 @@
-import { UPDATE_STATUS } from "./types";
+import { ProfileReduxActions, ProfileReduxActionTypes } from "./types";
 
-export const updateStatus = (status: any) => {
+export function updateStatus (status: string): ProfileReduxActions {
 	return {
-		type: UPDATE_STATUS,
+		type: ProfileReduxActionTypes.UPDATE_STATUS,
 		payload: status,
 	}
 }

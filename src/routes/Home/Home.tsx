@@ -50,7 +50,7 @@ class Home extends Component<HomeProps> {
 // 	invite: state.invite
 // });
 const mapStateToProps = (state: any) => ({	
-	status: state.status,
+	status: state.profile.status,
 });
 
 // const mapDispatchToProps = (dispatch: any) =>
