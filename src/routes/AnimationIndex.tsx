@@ -2,10 +2,10 @@ import React from 'react';
 
 import { withRouter } from 'react-router';
 import { Route, Switch, Link } from 'react-router-dom';
-import { routes, detailPageRoutes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
+import { navigationRoutes, detailPageRoutes, getDataBasedRoutes, IRouteData } from './RoutesMetaStructure';
 
 import { exampleDataSet } from '../seed/data';
-import { appConfig } from '../helpers/appConfig';
+import { appConfig } from '../configuration/appConfig';
 
 import styled from 'styled-components';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -45,11 +45,18 @@ import './index.css';
 // }
 let prevPaths: string[] = ['/'];
 
-const Menu = (props: any) => {
-	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet, displayType));
+interface IMenuProps {
+	routeData: IRouteData[];
+	history: any;
+	currentLocation: any;
+}
+
+const Menu = (props: IMenuProps) => {
+	const { routeData } = props;
+	// const { displayType } = appConfig;
+	// const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet, displayType));
 	return (<div className="menu-container">
-		{allRoutes.map((route: IRouteData, index: number) => {
+		{routeData.map((route: IRouteData, index: number) => {
 			return (
 				<Link className="menu-item__text" key={`l-${index}`} to={route.path}>{route.title}</Link>
 				// <button style={{color: 'black'}} className="menu-item__text" key={`l-${index}`} onClick={() => setTimeout(() => {
@@ -63,14 +70,19 @@ const Menu = (props: any) => {
 
 // const RouterMenu = withRouter(Menu);
 
-export default () => {
-	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet	, displayType)).concat(detailPageRoutes);
+interface IAnimatedIndexProps {
+	routeData: IRouteData[];
+}
+
+export default (props: IAnimatedIndexProps) => {
+	const { routeData } = props;
+	// const { displayType } = appConfig;
+	// const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet	, displayType)).concat(detailPageRoutes);
 	const prevPath: string = prevPaths.shift()!.toString();
 	return (	
 		<Route
 			render={({ location, history, match }) => {
-				console.log(match);
+				// console.log(match);
 				prevPaths.push(location.pathname);
 				// console.log('prevPath', prevPath, "currentLocation", location.pathname, 'length', prevPaths.length);
 				const totalDuration = appConfig.animationDuration * 2;
@@ -78,7 +90,7 @@ export default () => {
 				const animationName = mainRoutes.includes(location.pathname) && !mainRoutes.includes(prevPath) ? "up" : "right";
 				return (
 					<React.Fragment>
-						<Menu history={history} currentLocation={location}/>
+						<Menu history={history} currentLocation={location} routeData={routeData}/>
 						<TransitionGroup>
 							<CSSTransition
 								key={location.key}
@@ -86,7 +98,7 @@ export default () => {
 								classNames={animationName}
 								>
 								<Switch location={location}>
-									{allRoutes.map((route, index) => {
+									{routeData.map((route: IRouteData, index: number) => {
 										return (
 											<Route
 												key={`r-${index}`}

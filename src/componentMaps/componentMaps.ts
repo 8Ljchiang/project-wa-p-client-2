@@ -7,7 +7,10 @@ import SessionItemDetailView from '../components/SessionItemDetail/SessionItemDe
 import FlexibleItemView from '../components/FlexibleItem/FlexibleItemView';
 import ProjectItemView from '../components/ProjectItem/ProjectItemView';
 import SessionItemView from '../components/SessionItem/SessionItemView';
-import { IComponentType } from './componentHelpers';
+import { IComponentType } from '../helpers/componentHelpers';
+import { ProfilePane } from '../components2/ProfilePanes/Profile';
+import InvitesPane from '../components2/ProfilePanes/Invites';
+import { IdeasPane } from '../components2/ProfilePanes/Ideas';
 
 // import SessionList from '../components/SessionList/SessionList';
 // import { IGenericPageComponent } from '../components/FlexiblePage/GenericPage';
@@ -24,6 +27,7 @@ export const itemDetailComponentMap: IComponentMapType = {
 	user: null,
 	flex: FlexibleItemDetailView,
 	exercise: null,
+	invite: null,
 };
 
 export const itemsListComponentMap: IComponentMapType = {
@@ -34,6 +38,7 @@ export const itemsListComponentMap: IComponentMapType = {
 	exercise: null,
 	message: null,
 	user: null,
+	invite: null,
 };
 
 export const itemComponentMap: IComponentMapType = {
@@ -44,7 +49,25 @@ export const itemComponentMap: IComponentMapType = {
 	exercise: null,
 	message: null,
 	user: null,
+	invite: null,
 };
+
+export enum RightMenuCompRefNames {
+	profile = 'prof',
+	invites = 'invi',
+	ideas = 'idea',
+}
+
+export type IRightMenuComponentMap = {
+	// [key in keyof typeof componentRefNames]: any; // any as type placeholder for React.Component type;
+	[key in RightMenuCompRefNames]: any; // any as type placeholder for React.Component type;
+}
+
+export const rightMenuComponentMap: IRightMenuComponentMap = {
+	prof: ProfilePane,
+	invi: InvitesPane,
+	idea: IdeasPane,
+}
 
 // export interface ISectionMapType {
 // 	[key: string]: string;

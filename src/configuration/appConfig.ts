@@ -1,4 +1,4 @@
-import { IComponentDisplayType } from "./componentHelpers";
+import { IComponentDisplayType } from "../helpers/componentHelpers";
 
 export type IAppConfigType = {
 	displayType: IComponentDisplayType;

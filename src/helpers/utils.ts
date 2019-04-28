@@ -14,6 +14,12 @@ export const switchcaseF =
 (context: any) =>
 executeIfFunction(switchcase(cases)(defaultCase)(type), context);
 
+export const reduxSwitchcase =
+(cases: any) =>
+(defaultCase: any) =>
+(type: any) => cases.hasOwnProperty(type) ? cases[type] : defaultCase;
+
+
 export const isValidArray = (array: any[]): boolean => {
 	return (array && Array.isArray(array) && array.length > 0);
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { IBaseObject, IDataType } from '../../seed/data';
 import { IComponentType, getMatchingComponent } from '../../helpers/componentHelpers';
-import { itemComponentMap } from '../../helpers/componentMaps';
+import { itemComponentMap } from '../../componentMaps/componentMaps';
 
 import './FlexibleItemsListView.css';
 

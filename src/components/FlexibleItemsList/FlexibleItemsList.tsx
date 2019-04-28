@@ -6,7 +6,7 @@ import React from 'react';
 
 import { IBaseObject, IDataType } from '../../seed/data';
 import { IComponentType, getMatchingComponent } from '../../helpers/componentHelpers';
-import { itemComponentMap } from '../../helpers/componentMaps';
+import { itemComponentMap } from '../../componentMaps/componentMaps';
 
 export interface IFlexibleListProps<T> {
 	items: T[];

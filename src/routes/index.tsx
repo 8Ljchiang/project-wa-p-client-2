@@ -1,36 +1,48 @@
 import React from 'react';
 
-import { Route, Switch, Link } from 'react-router-dom';
-import { routes, getDataBasedRoutes, IRouteData } from '../helpers/routes';
+import { Route, Switch } from 'react-router-dom';
+import { IRouteData } from './RoutesMetaStructure';
+
+import RouteNavigation from '../components2/Menu/RouteNavigation';
+import ProfileNavigation from '../components2/Menu/ProfileNavigation';
 
 import './index.css';
-import { exampleDataSet } from '../seed/data';
-import { appConfig } from '../helpers/appConfig';
 
-export default () => {
-	const { displayType } = appConfig;
-	const allRoutes: IRouteData[] = routes.concat(getDataBasedRoutes(exampleDataSet, displayType));
+interface IRouteProps {
+	routeDataSet: IRouteData[];
+}
+
+function renderRouteData(routeDataSet: IRouteData[]) {
+	return routeDataSet.map((routeData: IRouteData, index: number) => {
+		const { exact, path, component } = routeData;
+		return (
+			<Route
+				key={`r-${index}`}
+				path={path}
+				exact={exact}
+				component={component}
+			/>
+		);
+	});
+}
+
+export default (props: IRouteProps) => {
+	const { routeDataSet } = props;
 	return (
 		<React.Fragment>
-			<div className="menu-container">
-				{allRoutes.map((route: IRouteData, index: number) => {
-					return (
-						<Link className="menu-item__text" key={`l-${index}`} to={route.path}>{route.title}</Link>
-					);
-				})}
-			</div>
+			<RouteNavigation routeDataSet={routeDataSet} />
+			<ProfileNavigation />
 			<Switch>
-				{allRoutes.map((route, index) => {
-					return (
-						<Route
-							key={`r-${index}`}
-							path={route.path}
-							exact={route.exact}
-							component={route.component}
-						/>
-					);
-				})}
+				{renderRouteData(routeDataSet)}
 			</Switch>
 		</React.Fragment>
 	);
 };
+
+// <div className="menu-container">
+// 	{routeData.map((route: IRouteData, index: number) => {
+// 		return (
+// 			<Link className="menu-item__text" key={`l-${index}`} to={route.path}>{route.title}</Link>
+// 		);
+// 	})}
+// </div>

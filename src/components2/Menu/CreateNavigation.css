@@ -1,0 +1,7 @@
+.creation-navigation-container {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	display: flex;
+	z-index: 10;
+}

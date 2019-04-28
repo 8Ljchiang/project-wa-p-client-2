@@ -2,7 +2,7 @@ import { switchcaseF, isValidString, isValidArray } from '../helpers/utils';
 import { any } from 'prop-types';
 
 export type IDataType =
-	'project' | 'session' | 'exercise' | 'user' | 'message'; // | 'message' | 'user';
+	'project' | 'session' | 'exercise' | 'user' | 'message' | 'invite'; // | 'message' | 'user';
 
 export type IDataMap = {
 	[key in IDataType]: any;
@@ -17,6 +17,7 @@ export const dataMap: IDataMap = {
 	project: getProjects,
 	session: getSessions,
 	exercise: getExercises, 
+	invite: null,
 	message: null,
 	user: null,
 };
@@ -35,6 +36,13 @@ export interface IProject extends IBaseObject {
 	type: string;
 	repo: string;
 	features: string[];
+}
+
+export interface IInvite extends IBaseObject {
+	sender: string;
+	receiver: string;
+	sessionId: string;
+	message: string;
 }
 
 export interface ISession extends IBaseObject {
@@ -119,7 +127,15 @@ export const exampleDataSet: IDataSetExample = {
 	user: {
 		id: '',
 		username: '',
-	}
+	},
+	invite: {
+		id: '',
+		title: '',
+		sender: '',
+		receiver: '',
+		message: '',
+		sessionId: '',
+	},
 }
 
 
