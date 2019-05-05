@@ -1,7 +1,8 @@
 import React from 'react';
 import { switchcase } from './utils';
 import { IDataType } from '../seed/data';
-import { RightMenuCompRefNames, rightMenuComponentMap } from '../componentMaps/componentMaps';
+import { RightMenuCompRefNames, rightMenuComponentMap, sessionPaneComponentMap } from '../componentMaps/componentMaps';
+import { SessionPaneSelection } from '../store/viewContext/types';
 
 export type IComponentType =
 	IDataType |
@@ -20,5 +21,10 @@ export function getMatchingComponent(componentMap: any, type: string) {
 
 export function getRightMenuComponent(componentRefName: RightMenuCompRefNames): any {
 	const Component = rightMenuComponentMap[componentRefName];
+	return Component;
+}
+
+export function getSessionPaneComponent(componentRefName: SessionPaneSelection): any {
+	const Component = sessionPaneComponentMap[componentRefName];
 	return Component;
 }

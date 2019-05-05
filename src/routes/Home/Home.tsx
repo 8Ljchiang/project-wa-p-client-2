@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateStatus } from '../../store/profile/actions';
 
 import './Home.css';
+import SessionInfo from '../../components2/SessionPanes/SessionInfo';
 
 interface HomeProps {
 	status: string;
@@ -39,6 +40,7 @@ class Home extends Component<HomeProps> {
 			<div className="page">
 				<h1>Home Page</h1>
 				<p>{this.props.status}</p>
+				<SessionInfo />
 				{/* <button onClick={this.addInvite}>Create invite</button> */}
 				{/* {this.renderInvites()} */}
 			</div>

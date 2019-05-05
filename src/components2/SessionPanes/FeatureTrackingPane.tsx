@@ -34,15 +34,16 @@ export default class FeatureTrackingPane extends Component<FeatureTrackingPanePr
 	}
 
 	render() {
-		const { features } = this.props;
-		const { selectedFeatureId } = this.state;
-		const filteredFeatures = features.filter((feature) => feature.id === selectedFeatureId); 
-		const selectedFeature = filteredFeatures.length > 0 ? filteredFeatures[0] : null;
+		// const { features } = this.props;
+		// const { selectedFeatureId } = this.state;
+		// const filteredFeatures = features.filter((feature) => feature.id === selectedFeatureId); 
+		// const selectedFeature = filteredFeatures.length > 0 ? filteredFeatures[0] : null;
 		return (
 			<div className="feature-tracking-container">
-				<FeatureGuidance feature={selectedFeature} completeFeature={this.completeFeature} />
+				<h1>Feature Tracking Pane</h1>
+				{/* <FeatureGuidance feature={selectedFeature} completeFeature={this.completeFeature} />
 				<div>Create Feature Button</div>
-				<ProjectFeaturesList features={features} setSelectedFeatureid={this.setSelectedFeatureId} />
+				<ProjectFeaturesList features={features} setSelectedFeatureid={this.setSelectedFeatureId} /> */}
 			</div>
 		);
 	}

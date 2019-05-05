@@ -8,6 +8,7 @@ import { projectsReducer } from './project/reducers';
 import { sessionsReducer } from './session/reducers';
 import { exerciseReducer } from './exercise/reducers';
 import { messagesReducer } from './message/reducers';
+import { viewContextReducer } from './viewContext/reducer';
 
 export const rootReducer = combineReducers({
 	invite: inviteReducer,
@@ -17,7 +18,8 @@ export const rootReducer = combineReducers({
 	project: projectsReducer,
 	session: sessionsReducer,
 	exercise: exerciseReducer,
-	message: messagesReducer
+	message: messagesReducer,
+	viewContext: viewContextReducer,
 });
 
 export type ReduxStore = ReturnType<typeof rootReducer>;

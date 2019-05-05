@@ -20,13 +20,14 @@ export default class TimeTrackingPane extends Component<SessionEventTrackingProp
 	}
 
 	render() {
-		const { sessionEvents, sessionId, users } = this.props;
-		const latestSessionEvent = sessionEvents[sessionEvents.length];
+		// const { sessionEvents, sessionId, users } = this.props;
+		// const latestSessionEvent = sessionEvents[sessionEvents.length];
 		return (
 			<div className="time-tracking-container">
-				<UserTimeTracker sessionId={sessionId} users={users} latestSessionEvent={latestSessionEvent} />
+				<h1>Time Tracking Pane</h1>
+				{/* <UserTimeTracker sessionId={sessionId} users={users} latestSessionEvent={latestSessionEvent} />
 				<div>Divider</div>
-				<SessionEventsList events={sessionEvents}/>
+				<SessionEventsList events={sessionEvents}/> */}
 			</div>
 		);
 	}

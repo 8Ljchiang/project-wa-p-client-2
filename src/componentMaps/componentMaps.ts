@@ -19,6 +19,11 @@ import { JoinedSessionsPane } from '../components2/ProfilePanes/JoinedSessions';
 import { FollowedExercisesPane } from '../components2/ProfilePanes/FollowedExercises';
 import { FollowedUsersPane } from '../components2/ProfilePanes/FollowedUsers';
 import MyMessages from '../components2/ProfilePanes/MyMessages';
+import { SessionPaneSelection } from '../store/viewContext/types';
+import TimeTrackingPane from '../components2/SessionPanes/TimeTrackingPane';
+import FeatureTrackingPane from '../components2/SessionPanes/FeatureTrackingPane';
+import SessionDetailsPane from '../components2/SessionPanes/SessionDetailsPane';
+import SessionSummaryPane from '../components2/SessionPanes/SessionSummaryPane';
 
 // import SessionList from '../components/SessionList/SessionList';
 // import { IGenericPageComponent } from '../components/FlexiblePage/GenericPage';
@@ -94,6 +99,17 @@ export const rightMenuComponentMap: IRightMenuComponentMap = {
 	fexer: FollowedExercisesPane,
 	fuser: FollowedUsersPane,
 	mess: MyMessages,
+}
+
+export type ISessionPaneComponentMap = {
+	[key in SessionPaneSelection]: any;
+}
+
+export const sessionPaneComponentMap: ISessionPaneComponentMap = {
+	[SessionPaneSelection.EventTracking]: TimeTrackingPane,
+	[SessionPaneSelection.FeatureTracking]: FeatureTrackingPane,
+	[SessionPaneSelection.SessionDetails]: SessionDetailsPane,
+	[SessionPaneSelection.SessionSummary]: SessionSummaryPane,
 }
 
 // export interface ISectionMapType {
