@@ -1,7 +1,15 @@
-export class DataService {
-	static dataMap: any = {};
+import { INetworkResult } from './../types/NetworkResult';
 
-	static setData(key: string, value: any): void {
+export interface IDataService<T> {
+	read(itemId: string): INetworkResult<T>;
+	readAll(): INetworkResult<T[]>;
+	update();
+}
+
+export class DataService {
+	static services: { [key: string]: IDataService<any> } = {};
+
+	static setDataService(key: string, value: any): void {
 		this.dataMap[key] = value;
 	}
 
