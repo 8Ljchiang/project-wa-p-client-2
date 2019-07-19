@@ -5,6 +5,7 @@ export type IAppConfigType = {
 	animationDuration: number;
 	itemGenerationCount: number;
 	networkCallDelay: number;
+	useMockDataService: boolean;
 }
 
 export const appConfig: IAppConfigType = {
@@ -12,4 +13,5 @@ export const appConfig: IAppConfigType = {
 	animationDuration: 600,
 	itemGenerationCount: 40,
 	networkCallDelay: 500,
+	useMockDataService: true,
 }

@@ -7,7 +7,7 @@ import AnimatedFlexiblePage from '../components/FlexiblePage/AnimatedFlexiblePag
 
 import { IDataMap, IDataType, IDataSetExample } from '../seed/data';
 import { IComponentDisplayType } from '../helpers/componentHelpers';
-import { convertToTitleCase } from '../helpers/utils';
+import { convertToTitleCase } from '../core/utils/validation-helpers';
 import SessionDetailPage from '../components/SessionDetailPage/SessionDetailPage';
 
 import Home from './Home/Home';

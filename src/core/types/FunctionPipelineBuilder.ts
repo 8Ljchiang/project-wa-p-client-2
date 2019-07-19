@@ -1,9 +1,9 @@
-import { Result } from './Result';
+import { ServiceResult } from './ServiceResult';
 
 // export type ResultFunction = <T>(a: any | Result<any, any>) => T | Result<any, any>;
 // Maybe this needs to be a service too.
 export type GeneralFunction = <T>(a: T) => T;
-export type ResultFunction = (a: any) => Result<any, any>;
+export type ResultFunction = (a: any) => ServiceResult<any, any>;
 
 export class FunctionPipelineBuilder {
 	// static pipe<T>(...fns: ResultFunction[]): T | Result<any, any> {

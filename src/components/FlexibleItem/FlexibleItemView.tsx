@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IBaseObject, IDataType } from '../../seed/data';
 import './FlexibleItemView.css';
-import { isValidObject } from '../../helpers/utils';
+import { isValidObject } from '../../core/utils/validation-helpers';
 import { Link } from 'react-router-dom';
 
 export interface IFlexibleItemProps<T> {

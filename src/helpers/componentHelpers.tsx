@@ -1,5 +1,5 @@
 import React from 'react';
-import { switchcase } from './utils';
+import { switchcase } from '../core/utils/validation-helpers';
 import { IDataType } from '../seed/data';
 import { RightMenuCompRefNames, rightMenuComponentMap, sessionPaneComponentMap } from '../componentMaps/componentMaps';
 import { SessionPaneSelection } from '../store/viewContext/types';

@@ -1,24 +1,30 @@
+export enum LogType {
+	Info = '[Info]',
+	Error = '[Error]',
+	Warn = '[Warning]',
+}
+
 export class LogService {
 	static readonly appName: string = 'pair';
 	static readonly env: string = 'dev';
 
 	static info(subject: string, description?: string, context?: string) {
-		const updatedSubject = `[INFO]: ${subject}`;
-		this.log(updatedSubject, description, context);
+		const updatedSubject = `${LogType.Info}: ${subject}`;
+		this.log(LogType.Info, updatedSubject, description, context);
 	}
 
 	static warning(subject: string, description?: string, context?: string) {
-		this.log(subject, description, context);
+		this.log(LogType.Warn, subject, description, context);
 	}
 
 	static error(error: Error, context?: string) {
-		const subject = `[Error]: ${error.message}`;
+		const subject = `${error.message}`;
 		const description = `${error.stack}`;
-		this.log(subject, description, context);
+		this.log(LogType.Error, subject, description, context);
 	}
 
-	static log(subject: string, description?: string, context?: string): void {
-		let metaInfo = '';
+	static log(type: LogType, subject: string, description?: string, context?: string): void {
+		let metaInfo = type;
 		if (this.appName) {
 			metaInfo = this.append(metaInfo, this.appName);
 		}

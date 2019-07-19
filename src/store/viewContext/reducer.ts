@@ -1,5 +1,5 @@
 import { ViewContextState, MenuSelection, SessionPaneSelection, ViewContextActionTypes, ViewContextActions } from "./types";
-import { reduxSwitchcase } from "../../helpers/utils";
+import { reduxSwitchcase } from "../../core/utils/validation-helpers";
 
 const defaultViewContextState: ViewContextState = {
 	menuSelection: MenuSelection.Profile,

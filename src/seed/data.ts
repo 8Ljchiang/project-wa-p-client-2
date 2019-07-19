@@ -1,250 +1,104 @@
-import { switchcaseF, isValidString, isValidArray } from '../helpers/utils';
-import { DataTypes } from './dataTypes';
+// import { switchcaseF, isValidString, isValidArray } from '../core/utils/validation-helpers';
+// import { DataTypes } from './dataTypes';
 
-export type IDataType = DataTypes;
+// export type IDataType = DataTypes;
 
-export type IDataMap = {
-	[key in IDataType]: any;
-}
-
-// Used for GraphQL Queries;
-// export const dataQueryMap = {
-
+// export type IDataMap = {
+// 	[key in IDataType]: any;
 // }
 
-export const dataMap: IDataMap = {
-	project: getProjects,
-	session: getSessions,
-	exercise: getExercises, 
-	invite: null,
-	message: null,
-	user: null,
-	idea: null,
-};
+// // Used for GraphQL Queries;
+// // export const dataQueryMap = {
 
-type IDataSetExampleType = {
-	[key in IDataType]: any;
-}
+// // }
 
-export type BaseObjectId = string;
+// export const dataMap: IDataMap = {
+// 	project: getProjects,
+// 	session: getSessions,
+// 	exercise: getExercises, 
+// 	invite: null,
+// 	message: null,
+// 	user: null,
+// 	idea: null,
+// };
 
-export interface IBaseObject {
-	id: BaseObjectId;
-}
 
-export interface IProject extends IBaseObject {
-	title: string;
-	description: string;
-	type: string;
-	repo: string;
-	features: string[];
-}
 
-export interface IInvite extends IBaseObject {
-	title: string;
-	sender: string;
-	receiver: string;
-	sessionId: string;
-	message: string;
-}
+// // Depricated
+// function getProjects(count: number = 5): IProject[] {
+// 	const results: IProject[] = [];
+// 	for (let i = 0; i < count; i++) {
+// 		// results.push({
+// 		// 	description: `project-desc-${i}`,
+// 		// 	id: `p-${i}`,
+// 		// 	title: `project-title-${i}`,
+// 		// 	type: `project-type-${i}`,
+// 		// });
+// 	}
+// 	return results;
+// }
 
-export interface ISession extends IBaseObject {
-	title: string;
-	description: string;
-	visibility: string;
-	access: string;
-	updatedAt: string;
-	projectId: string;
-	creatorId: string;
-	participants: string[];
-	type: string;
-	category: string;
-	tags: string;
-	userIds: string[];
-}
+// // Depricated
+// function getSessions(count: number = 5): ISession[] {
+// 	const results: ISession[] = [];
+// 	for (let i = 0; i < count; i++) {
+// 		// results.push({
+// 		// 	description: `session-desc-${i}`,
+// 		// 	id: `s-${i}`,
+// 		// 	title: `session-title-${i}`,
+// 		// });
+// 	}
+// 	return results;
+// }
 
-export interface IExercise extends IBaseObject {
-	title: string;
-	description: string;
-	type: string;
-	repo: string;
-}
+// // Depricated
+// function getExercises(count: number = 5): IExercise[] {
+// 	const results: IExercise[] = [];
+// 	for (let i = 0; i < count; i++) {
+// 		// const exercise: IExercise = {
+// 		// 	description: `exercise-desc-${i}`,
+// 		// 	id: `e-${i}`,
+// 		// 	title: `exercise-title-${i}`,
+// 		// 	type: `exercise-type-${i}`,
+// 		// };
 
-export interface IUser extends IBaseObject {
-	username: string;
-}
+// 		// results.push(exercise);
+// 	}
+// 	return results;
+// }
 
-export interface IMessage extends IBaseObject {
-	title: string; 
-	description: string;
-	content: string;
-	author: string;
-}
+// function generateDataItemSet(exampleItem: any, count: number, itemName: string): any[] {
+// 	const itemKeys = Object.keys(exampleItem);
+// 	if ( exampleItem && itemKeys.length> 0) {
+// 		const results = [];
+// 		for (let i = 0; i < count; i++) {
+// 			const item: any = {};
+// 			for (let key of itemKeys) {
+// 				item[key] = isValidString(exampleItem[key]) || isValidArray(exampleItem[key]) ? exampleItem[key] : `${itemName}-${key.slice(0, 4)}-${i}`;
+// 			}
+// 			results.push(item);
+// 		}
+// 		return results;
+// 	}
+// 	return [];
+// }
 
-export interface IIdea extends IBaseObject {
-	title: string;
-	description: string;
-	creatorId: string;
-	tags: string;
-	category: string;
-	type: string;
-}
+// function generateAllData(dataExampleSet: IDataSetExample, count: number = 10) {
+// 	const resultDataSet: any = {};
+// 	const dataTypeNames = Object.keys(dataExampleSet);
 
-export interface IDataSetExample extends IDataSetExampleType {
-	project: IProject;
-	exercise: IExercise;
-	session: ISession;
-	message: IMessage;
-	user: IUser;
-	invite: IInvite;
-	idea: IIdea;
-}
+// 	dataTypeNames.forEach((name: string) => {
+// 		const dataTypeName = name as IDataType;
+// 		const exampleItem = dataExampleSet[dataTypeName];
+// 		resultDataSet[dataTypeName] = generateDataItemSet(exampleItem, count, dataTypeName);
+// 	});
 
-export const exampleDataSet: IDataSetExample = {
-	project: {
-		id: '',
-		title: '',
-		description: '',
-		repo: 'http://www.github.com/',
-		type: '',
-		features: ['feature-1', 'feature-2', 'feature-3'],
-	},
-	session: {
-		id: '',
-		visibility: 'global',
-		access: 'public',
-		updatedAt: '',
-		projectId: 'project-id-0',
-		creatorId: '',
-		title: '',
-		participants: ['user-id-0', 'user-id-1'],
-		description: '',
-		type: '',
-		category: '',
-		tags: '',
-		userIds: ['user-id-0', 'user-id-1', 'user-id-2'],
-	},
-	exercise: {
-		id: '',
-		title: '',
-		description: '',
-		type: '',
-		repo: 'http://www.github.com/',
-	},
-	message: {
-		id: '',
-		content: '',
-		author:'',
-		description: '',
-		title: '',
-	},
-	user: {
-		id: '',
-		username: '',
-	},
-	invite: {
-		id: '',
-		title: '',
-		sender: '',
-		receiver: '',
-		message: '',
-		sessionId: '',
-	},
-	idea: {
-		id: '',
-		title: '',
-		creatorId: '',
-		tags: '',
-		category: '',
-		type: '',
-		description: '',
-	}
-}
+// 	return resultDataSet;
+// }
 
-// Depricated
-function getProjects(count: number = 5): IProject[] {
-	const results: IProject[] = [];
-	for (let i = 0; i < count; i++) {
-		// results.push({
-		// 	description: `project-desc-${i}`,
-		// 	id: `p-${i}`,
-		// 	title: `project-title-${i}`,
-		// 	type: `project-type-${i}`,
-		// });
-	}
-	return results;
-}
-
-// Depricated
-function getSessions(count: number = 5): ISession[] {
-	const results: ISession[] = [];
-	for (let i = 0; i < count; i++) {
-		// results.push({
-		// 	description: `session-desc-${i}`,
-		// 	id: `s-${i}`,
-		// 	title: `session-title-${i}`,
-		// });
-	}
-	return results;
-}
-
-// Depricated
-function getExercises(count: number = 5): IExercise[] {
-	const results: IExercise[] = [];
-	for (let i = 0; i < count; i++) {
-		// const exercise: IExercise = {
-		// 	description: `exercise-desc-${i}`,
-		// 	id: `e-${i}`,
-		// 	title: `exercise-title-${i}`,
-		// 	type: `exercise-type-${i}`,
-		// };
-
-		// results.push(exercise);
-	}
-	return results;
-}
-
-function generateDataItemSet(exampleItem: any, count: number, itemName: string): any[] {
-	const itemKeys = Object.keys(exampleItem);
-	if ( exampleItem && itemKeys.length> 0) {
-		const results = [];
-		for (let i = 0; i < count; i++) {
-			const item: any = {};
-			for (let key of itemKeys) {
-				item[key] = isValidString(exampleItem[key]) || isValidArray(exampleItem[key]) ? exampleItem[key] : `${itemName}-${key.slice(0, 4)}-${i}`;
-			}
-			results.push(item);
-		}
-		return results;
-	}
-	return [];
-}
-
-function generateAllData(dataExampleSet: IDataSetExample, count: number = 10) {
-	const resultDataSet: any = {};
-	const dataTypeNames = Object.keys(dataExampleSet);
-
-	dataTypeNames.forEach((name: string) => {
-		const dataTypeName = name as IDataType;
-		const exampleItem = dataExampleSet[dataTypeName];
-		resultDataSet[dataTypeName] = generateDataItemSet(exampleItem, count, dataTypeName);
-	});
-
-	return resultDataSet;
-}
-
-function generateData<Type>(dataExampleSet: IDataSetExample, dataType: IDataType, count: number = 10) {
-	const exampleItem = dataExampleSet[dataType];
-	return generateDataItemSet(exampleItem, count, dataType) as Type[];
-}
-
-export function autoGenerateData<Type>(dataType: IDataType, count: number = 10): Type[] {
-	return generateData<Type>(exampleDataSet, dataType, count);
-}
-
-export function getItems<T>(type: IDataType, count: number): T[] {
-	// const results = switchcaseF(dataMap)(type)(count);
-	const resultItems = switchcaseF(dataMap)(() => [])(type)(count);
-	// console.log(resultItems);
-	return (resultItems && resultItems.length > 0) ? resultItems : [];
-}
+// export function getItems<T>(type: IDataType, count: number): T[] {
+// 	// const results = switchcaseF(dataMap)(type)(count);
+// 	const resultItems = switchcaseF(dataMap)(() => [])(type)(count);
+// 	// console.log(resultItems);
+// 	return (resultItems && resultItems.length > 0) ? resultItems : [];
+// }

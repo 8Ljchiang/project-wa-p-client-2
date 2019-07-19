@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { isValidObject, isValidString } from '../../helpers/utils';
+import { isValidObject, isValidString } from '../../core/utils/validation-helpers';
 
 import './FlexibleItemCreateForm.css';
 

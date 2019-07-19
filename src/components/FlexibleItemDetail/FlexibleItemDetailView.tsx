@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IBaseObject } from '../../seed/data';
 import { IComponentType } from '../../helpers/componentHelpers';
-import { isValidObject } from '../../helpers/utils';
+import { isValidObject } from '../../core/utils/validation-helpers';
 
 import './FlexibleItemDetailView.css';
 
