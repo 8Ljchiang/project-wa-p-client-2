@@ -15,6 +15,7 @@ import Dashboard from './Dashboard/Dashboard';
 import Search from './Search/Search';
 import Highlights from './Highlights/Highlights';
 import ErrorBoundary from '../hoc/ErrorBoundary';
+import SessionInstance from './SessionInstance/SessionInstance';
 
 export interface IRouteData {
 	component: (routerProps: any) => any;
@@ -51,6 +52,12 @@ export const navigationRoutes: IRouteData[] = [
 		path: '/dashboard',
 		title: 'Dashboard',
 	},
+	{
+		component: (props: any) => <SessionInstance {...props} />,
+		exact: true,
+		path: '/session-instance',
+		title: 'Session Instance Test', 
+	}
 	// {
 	// 	component: () => <FlexiblePage<IProject> dataType="project" displayType="default" title="Projects List Page" />,
 	// 	exact: true,

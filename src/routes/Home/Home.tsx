@@ -37,10 +37,9 @@ class Home extends Component<HomeProps> {
 
 	render() {
 		return (
-			<div className="page">
+			<div className="home-page-container">
 				<h1>Home Page</h1>
 				<p>{this.props.status}</p>
-				<SessionInfo />
 				{/* <button onClick={this.addInvite}>Create invite</button> */}
 				{/* {this.renderInvites()} */}
 			</div>

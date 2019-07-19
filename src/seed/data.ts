@@ -56,7 +56,7 @@ export interface ISession extends IBaseObject {
 	updatedAt: string;
 	projectId: string;
 	creatorId: string;
-	participants: string;
+	participants: string[];
 	type: string;
 	category: string;
 	tags: string;
@@ -117,7 +117,7 @@ export const exampleDataSet: IDataSetExample = {
 		projectId: 'project-id-0',
 		creatorId: '',
 		title: '',
-		participants: '',
+		participants: ['user-id-0', 'user-id-1'],
 		description: '',
 		type: '',
 		category: '',
