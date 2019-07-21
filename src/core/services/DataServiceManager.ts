@@ -6,6 +6,7 @@ import { IDataType } from '../utils/mock-data-gen-schemas';
 import { ServiceResult } from '../types/ServiceResult';
 import { MockDataService } from './mocks/MockDataService';
 import { autoGenerateMockData } from '../utils/generate-mock-data';
+import { LogService } from './LogService';
 
 export class DataServiceManager {
 	static services: { [key in IDataType]: any } = {

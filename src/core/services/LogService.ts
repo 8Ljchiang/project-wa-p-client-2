@@ -24,7 +24,7 @@ export class LogService {
 	}
 
 	static log(type: LogType, subject: string, description?: string, context?: string): void {
-		let metaInfo = type;
+		let metaInfo = type as string;
 		if (this.appName) {
 			metaInfo = this.append(metaInfo, this.appName);
 		}

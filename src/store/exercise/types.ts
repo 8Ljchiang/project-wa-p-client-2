@@ -1,4 +1,4 @@
-import { IExercise, BaseObjectId } from "../../seed/data";
+import { IExercise, BaseObjectId } from "../../core/types/data-type-definitions";
 
 export enum ExerciseReduxActionTypes {
 	READ_EXERCISES = 'R_EXER',
