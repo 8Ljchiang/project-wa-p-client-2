@@ -1,5 +1,5 @@
 import { ExerciseReduxActionTypes } from "./types";
-import { BaseObjectId, IExercise } from "../../seed/data";
+import { BaseObjectId, IExercise } from "../../core/types/data-type-definitions";
 
 export function readExercises() {
 	return {
