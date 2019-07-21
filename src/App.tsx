@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Routes from './routes/index';
 import './App.css';
@@ -11,6 +11,51 @@ import { Provider } from 'react-redux';
 import AppViewContextProvider from './context/AppViewContextProvider';
 import { appStore } from './store/appStore';
 
+
+const TempHome = () => {
+	return (
+		<div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Home</div>
+	);
+}
+
+const TempSignOut = () => {
+	return (
+		<div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			<div style={{ border: '1px solid blue', padding: '10px'}}>
+				<h3>Sign Out</h3>
+				<button>Logout</button>
+			</div>
+		</div>
+	);
+}
+
+const TempSignUp = () => {
+	return (
+		<div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			<div style={{ border: '1px solid blue', padding: '10px', display: 'flex', alignItems: 'center' }}>
+				<h3>Sign Up</h3>
+				<input type="text" placeholder="username"/>
+				<input type="text" placeholder="email"/>
+				<input type="password" placeholder="password"/>
+				<input type="text" placeholder="invite token"/>
+				<button>Submit</button>
+			</div>
+		</div>
+	);
+}
+
+const TempLogin = () => {
+	return (
+		<div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			<div style={{ border: '1px solid blue', padding: '10px', display: 'flex', alignItems: 'center' }}>
+				<h3>Login</h3>
+				<input type="text" placeholder="username"/>
+				<input type="password" placeholder="password"/>
+				<button>Submit</button>
+			</div>
+		</div>
+	);
+}
 export default class App extends Component {
 	render() {
 		// console.log(Home);
@@ -21,7 +66,13 @@ export default class App extends Component {
 				<Provider store={appStore}>
 					<AppViewContextProvider>
 						<BrowserRouter>
-							<Routes routeDataSet={navigationRoutes}/>
+							<Switch>
+								<Route path={'/'} exact={true} component={TempHome} />
+								<Route path={'/login'} exact={true} component={TempLogin} />
+								<Route path={'/signup'} exact={true} component={TempSignUp} />
+								<Route path={'/signout'} exact={true} component={TempSignOut} />
+							</Switch>
+							{/* <Routes routeDataSet={navigationRoutes}/> */}
 						</BrowserRouter>
 					</AppViewContextProvider>
 				</Provider>

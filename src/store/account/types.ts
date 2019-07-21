@@ -7,6 +7,7 @@ export enum AccountReduxActionTypes {
 export interface AccountState {
 	authToken: string;
 	accountRoles: string[];
+	profile: { username: string };
 }
 
 interface AccountLoginAction {

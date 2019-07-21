@@ -37,7 +37,7 @@ const readAll = (initialState: ExercisesState, args: any): ExercisesState => {
 		success: (dataService: IDataService<any>) => {
 			const networkResult = dataService.readAll();
 			if (networkResult.errors.length > 0) {
-				LogService.error(new Error(networkResult.errors[0]), `DataService: ${dataType}`);
+				LogService.error(new Error(networkResult.errors[0]), `ExerciseService: ${dataType}`);
 			}
 			if (networkResult.data && Array.isArray(networkResult.data)) {
 				return Object.assign({}, initialState, exercisesDataAdapter(networkResult.data));
@@ -58,10 +58,10 @@ const create = (initialState: ExercisesState, args: any): ExercisesState => {
 		success: (dataService: IDataService<any>) => {
 			const networkResult = dataService.create(args.partialItem);
 			if (networkResult.errors.length > 0) {
-				LogService.error(new Error(networkResult.errors[0]), `DataService: ${dataType}`);
+				LogService.error(new Error(networkResult.errors[0]), `ExerciseService: ${dataType}`);
 			}
 			if (networkResult.data && Array.isArray(networkResult.data)) {
-				return Object.assign({}, initialState, [...initialState.exercises, networkResult.data]);
+				return Object.assign({}, initialState, { exercises: [...initialState.exercises, networkResult.data] });
 			}
 			return initialState;
 		},
