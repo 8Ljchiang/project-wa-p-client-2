@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { ISession } from '../../seed/data';
+import { ISession } from '../../core/types/data-type-definitions';
+// import { ISession } from '../../seed/data';
 
 interface MySessionsPaneProps {
 	sessions: ISession[];

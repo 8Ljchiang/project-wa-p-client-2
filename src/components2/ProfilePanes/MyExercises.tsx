@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IExercise } from '../../seed/data';
+import { IExercise } from '../../core/types/data-type-definitions';
+// import { IExercise } from '../../seed/data';
 
 interface MyExercisesPaneProps {
 	exercises: IExercise[];

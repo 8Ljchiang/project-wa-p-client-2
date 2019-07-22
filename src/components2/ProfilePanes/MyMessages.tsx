@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IMessage } from '../../seed/data';
+import { IMessage } from '../../core/types/data-type-definitions';
 
 interface MyMessagesPaneProps {
 	messages: IMessage[];

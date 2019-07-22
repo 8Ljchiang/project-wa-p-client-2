@@ -14,7 +14,8 @@ import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IIdea } from '../../seed/data';
+import { IIdea } from '../../core/types/data-type-definitions';
+// import { IIdea } from '../../seed/data';
 
 interface MyIdeasPaneProps {
 	ideas: IIdea[];

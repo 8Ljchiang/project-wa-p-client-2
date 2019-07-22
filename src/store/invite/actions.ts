@@ -1,5 +1,5 @@
-import { IInvite } from '../../seed/data';
 import { InviteReduxActionTypes, InviteReduxActions } from './types';
+import { IInvite } from '../../core/types/data-type-definitions';
 
 export function sendInvite(newInvite: IInvite): InviteReduxActions {
 	return {

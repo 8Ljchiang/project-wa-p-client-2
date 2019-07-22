@@ -1,5 +1,6 @@
+import { BaseObjectId } from './../../core/types/BaseObject';
 import { SessionReduxActionTypes } from "./types";
-import { BaseObjectId, ISession } from "../../seed/data";
+import { ISession } from "../../core/types/data-type-definitions";
 
 export function createSession(newSession: ISession) {
 	return {

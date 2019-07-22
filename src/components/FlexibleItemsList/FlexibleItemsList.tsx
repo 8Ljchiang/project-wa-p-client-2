@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-
-import { IBaseObject, IDataType } from '../../seed/data';
 import { IComponentType, getMatchingComponent } from '../../helpers/componentHelpers';
 import { itemComponentMap } from '../../componentMaps/componentMaps';
+import { IDataType } from '../../core/utils/mock-data-gen-schemas';
+import { IBaseObject } from '../../core/types/BaseObject';
 
 export interface IFlexibleListProps<T> {
 	items: T[];

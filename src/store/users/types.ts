@@ -1,4 +1,4 @@
-import { IUser } from "../../seed/data";
+import { IUser } from "../../core/types/data-type-definitions";
 
 export enum UserReduxActionTypes {
 	CREATE_USER = 'C_USER',

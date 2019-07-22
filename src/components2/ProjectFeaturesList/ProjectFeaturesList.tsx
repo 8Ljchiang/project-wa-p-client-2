@@ -1,5 +1,6 @@
 import React from 'react';
-import { BaseObjectId } from '../../seed/data';
+import { BaseObjectId } from '../../core/types/BaseObject';
+// import { BaseObjectId } from '../../seed/data';
 
 interface ProjectFeaturesListProps {
 	features: any[];

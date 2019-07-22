@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { Route, Switch, Link } from 'react-router-dom';
 import { navigationRoutes, detailPageRoutes, getDataBasedRoutes, IRouteData } from './RoutesMetaStructure';
 
-import { exampleDataSet } from '../seed/data';
+// import { exampleDataSet } from '../seed/data';
 import { appConfig } from '../configuration/appConfig';
 
 import styled from 'styled-components';

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './ProjectDetails.css';
-import { IProject } from '../../seed/data';
 import FeatureDetail from './FeatureDetail';
+import { IProject } from '../../core/types/data-type-definitions';
 
 interface IProjectDetailsProps {
 	project: IProject;

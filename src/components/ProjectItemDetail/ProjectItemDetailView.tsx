@@ -1,5 +1,6 @@
 import React from 'react';
-import { IProject } from '../../seed/data';
+import { IProject } from '../../core/types/data-type-definitions';
+
 
 export interface IProjectItemDetailViewProps {
 	item: IProject;

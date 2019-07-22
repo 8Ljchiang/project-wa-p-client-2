@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ISession } from '../../seed/data';
+import { ISession } from '../../core/types/data-type-definitions';
+// import { ISession } from '../../seed/data';
 
 export interface ISessionListItemProps {
 	item: ISession;

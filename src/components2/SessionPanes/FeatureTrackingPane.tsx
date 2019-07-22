@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { IProject, BaseObjectId } from '../../seed/data';
+// import { IProject, BaseObjectId } from '../../seed/data';
 import FeatureGuidance from '../FeatureGuidance/FeatureGuidance';
 import ProjectFeaturesList from '../ProjectFeaturesList/ProjectFeaturesList';
+import { IProject, BaseObjectId } from '../../core/types/data-type-definitions';
 
 interface FeatureTrackingPaneProps {
 	project: IProject;

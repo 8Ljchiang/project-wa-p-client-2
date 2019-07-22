@@ -6,7 +6,7 @@ import { INetworkResult } from '../../types/NetworkResult';
 export class MockDataService<T extends IBaseObject> implements IDataService<T> {
 	constructor(private dataStore: T[]) {}
 
-	create(partialItem: Omit<T, 'id'>): INetworkResult<T | null> {
+	create(partialItem: Partial<T>): INetworkResult<T | null> {
 		const newItem: any = {
 			...partialItem,
 			id: this.dataStore.length.toString()

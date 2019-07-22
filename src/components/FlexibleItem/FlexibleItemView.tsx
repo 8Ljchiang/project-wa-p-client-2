@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { IBaseObject, IDataType } from '../../seed/data';
 import './FlexibleItemView.css';
 import { isValidObject } from '../../core/utils/validation-helpers';
 import { Link } from 'react-router-dom';
+import { IDataType } from '../../core/utils/mock-data-gen-schemas';
+import { IBaseObject } from '../../core/types/BaseObject';
 
 export interface IFlexibleItemProps<T> {
 	item: T;

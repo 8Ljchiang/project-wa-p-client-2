@@ -1,4 +1,4 @@
-import { IProject, BaseObjectId } from "../../seed/data";
+import { IProject, BaseObjectId } from "../../core/types/data-type-definitions";
 
 export enum ProjectReduxActionTypes {
 	CREATE_PROJECT = 'C_PROJ',

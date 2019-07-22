@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BaseObjectId } from '../../seed/data';
+import { BaseObjectId } from '../../core/types/data-type-definitions';
 
 interface FeatureGuidanceProps {
 	feature: any;

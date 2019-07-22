@@ -1,4 +1,4 @@
-import { ISession, BaseObjectId } from "../../seed/data";
+import { ISession, BaseObjectId } from "../../core/types/data-type-definitions";
 
 export enum SessionReduxActionTypes {
 	CREATE_SESSION = 'C_SESS',

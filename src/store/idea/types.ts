@@ -1,4 +1,4 @@
-import { IIdea, BaseObjectId } from "../../seed/data";
+import { IIdea, BaseObjectId } from "../../core/types/data-type-definitions";
 
 export enum IdeaReduxActionTypes {
 	CREATE_IDEA = "C_IDEA",

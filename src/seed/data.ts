@@ -1,6 +1,10 @@
 // import { switchcaseF, isValidString, isValidArray } from '../core/utils/validation-helpers';
 // import { DataTypes } from './dataTypes';
 
+export function test() {
+	return '';
+}
+
 // export type IDataType = DataTypes;
 
 // export type IDataMap = {

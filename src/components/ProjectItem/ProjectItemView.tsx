@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IProject } from '../../seed/data';
+import { IProject } from '../../core/types/data-type-definitions';
 
 export interface IProjectListItemProps {
 	item: IProject;

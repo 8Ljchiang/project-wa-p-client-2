@@ -1,5 +1,5 @@
 import { MessageReduxActionTypes } from "./types";
-import { IMessage, BaseObjectId } from "../../seed/data";
+import { IMessage, BaseObjectId } from "../../core/types/data-type-definitions";
 
 export function createMessage(newMessage: IMessage) {
 	return {

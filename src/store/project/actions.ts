@@ -1,5 +1,6 @@
 import { ProjectReduxActionTypes } from "./types";
-import { IProject, BaseObjectId } from "../../seed/data";
+import { IProject } from "../../core/types/data-type-definitions";
+import { BaseObjectId } from "../../core/types/BaseObject";
 
 export function createProject(newProject: IProject) {
 	return {

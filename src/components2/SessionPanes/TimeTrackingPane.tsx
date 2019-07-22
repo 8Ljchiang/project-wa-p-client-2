@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BaseObjectId, IUser, ISession } from '../../seed/data';
+// import { BaseObjectId, IUser, ISession } from '../../seed/data';
 import SessionEventsList from '../SessionEventsList/SessionEventsList';
 import UserTimeTracker from '../UserTimeTracker/UserTimeTracker';
 import { connect } from 'react-redux';
+import { IUser, ISession } from '../../core/types/data-type-definitions';
 
 interface SessionEventTrackingProps {
 	users: IUser[];

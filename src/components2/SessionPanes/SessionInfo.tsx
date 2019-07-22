@@ -3,7 +3,7 @@ import { getSessionPaneComponent } from '../../helpers/componentHelpers';
 import { SessionPaneSelection } from '../../store/viewContext/types';
 import { connect } from 'react-redux';
 import { setSessionPaneSelectionAction } from '../../store/viewContext/actions';
-import { IUser, ISession } from '../../seed/data';
+// import { IUser, ISession } from '../../seed/data';
 
 type SessionInfoProps = {
 	sessionPaneSelection: SessionPaneSelection;

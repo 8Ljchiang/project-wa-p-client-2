@@ -5,7 +5,7 @@ import HomePage from '../components/HomePage/HomePage';
 import AnimatedPageHoc from '../components/AnimatedPage/AnimationComponent';
 import AnimatedFlexiblePage from '../components/FlexiblePage/AnimatedFlexiblePage';
 
-import { IDataMap, IDataType, IDataSetExample } from '../seed/data';
+// import { IDataMap, IDataType, IDataSetExample } from '../seed/data';
 import { IComponentDisplayType } from '../helpers/componentHelpers';
 import { convertToTitleCase } from '../core/utils/validation-helpers';
 import SessionDetailPage from '../components/SessionDetailPage/SessionDetailPage';
@@ -16,6 +16,7 @@ import Search from './Search/Search';
 import Highlights from './Highlights/Highlights';
 import ErrorBoundary from '../hoc/ErrorBoundary';
 import SessionInstance from './SessionInstance/SessionInstance';
+import { IDataSetExample, IDataType } from '../core/utils/mock-data-gen-schemas';
 
 export interface IRouteData {
 	component: (routerProps: any) => any;

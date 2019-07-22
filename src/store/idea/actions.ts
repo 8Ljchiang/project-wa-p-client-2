@@ -1,5 +1,6 @@
-import { IIdea, BaseObjectId } from "../../seed/data";
+import { IIdea } from './../../core/types/data-type-definitions';
 import { IdeaReduxActionTypes } from "./types";
+import { BaseObjectId } from '../../core/types/BaseObject';
 
 export function createIdea(newIdea: IIdea) {
 	return {

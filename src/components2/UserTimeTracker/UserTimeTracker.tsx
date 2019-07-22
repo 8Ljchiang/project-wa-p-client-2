@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { IUser, BaseObjectId } from '../../seed/data';
+// import { IUser, BaseObjectId } from '../../seed/data';
 
 import './UserTimeTracker.css';
+import { IUser } from '../../core/types/data-type-definitions';
+import { BaseObjectId } from '../../core/types/BaseObject';
 interface UserTimeTrackerProps {
 	users: IUser[];
 	sessionId: BaseObjectId;

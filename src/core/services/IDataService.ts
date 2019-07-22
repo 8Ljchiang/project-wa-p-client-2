@@ -2,7 +2,7 @@ import { INetworkResult } from '../types/NetworkResult';
 import { BaseObjectId } from '../types/data-type-definitions';
 
 export interface IDataService<T> {
-	create(partialItem: Omit<T, 'id'>): INetworkResult<T | null>;
+	create(partialItem: Partial<T>): INetworkResult<T | null>;
 	read(id: BaseObjectId): INetworkResult<T | null>;
 	readAll(): INetworkResult<T[] | null>;
 	update(id: BaseObjectId, item: T): INetworkResult<T | null>;

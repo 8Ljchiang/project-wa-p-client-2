@@ -1,4 +1,4 @@
-import { IInvite } from "../../seed/data";
+import { IInvite } from "../../core/types/data-type-definitions";
 
 export enum InviteReduxActionTypes {
 	SEND_INVITE = 'CR_INVT',

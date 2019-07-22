@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IProject } from '../../seed/data';
+import { IProject } from '../../core/types/data-type-definitions';
+// import { IProject } from '../../seed/data';
 
 interface MyProjectsPaneProps {
 	projects: IProject[];

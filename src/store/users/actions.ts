@@ -1,5 +1,5 @@
 import { UserReduxActionTypes } from "./types";
-import { IUser } from "../../seed/data";
+import { IUser } from "../../core/types/data-type-definitions";
 
 export function createUser(newUser: IUser) {
 	return {

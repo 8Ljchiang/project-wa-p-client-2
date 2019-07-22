@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { sendInvite, deleteInvite } from '../../store/invite/actions';
 import { ReduxStore } from '../../store/appReducers';
 import { bindActionCreators } from 'redux';
-import { IInvite } from '../../seed/data';
+import { IInvite } from '../../core/types/data-type-definitions';
+// import { IInvite } from '../../seed/data';
 
 interface InvitesPaneProps {
 	invites: IInvite[];

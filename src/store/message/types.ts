@@ -1,4 +1,5 @@
-import { IMessage, BaseObjectId } from "../../seed/data";
+import { IMessage, BaseObjectId } from "../../core/types/data-type-definitions";
+
 
 export enum MessageReduxActionTypes {
 	CREATE_MESSAGE = 'C_MESS',

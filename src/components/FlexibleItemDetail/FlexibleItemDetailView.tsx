@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { IBaseObject } from '../../seed/data';
 import { IComponentType } from '../../helpers/componentHelpers';
 import { isValidObject } from '../../core/utils/validation-helpers';
 
 import './FlexibleItemDetailView.css';
+import { IBaseObject } from '../../core/types/data-type-definitions';
 
 export interface IFlexibleItemDetailProps<T> {
 	item: T;

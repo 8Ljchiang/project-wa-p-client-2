@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BaseObjectId, IUser, ISession } from '../../seed/data';
+// import { BaseObjectId, IUser, ISession } from '../../seed/data';
 
 import SessionInfo from '../../components2/SessionPanes/SessionInfo';
 
